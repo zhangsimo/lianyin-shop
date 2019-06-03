@@ -46,6 +46,8 @@ export default {
   },
   created() {
     if (this.$store.state.city === '') {
+      console.log(123456)
+
       this.maker()
     } else {
       this.let = this.$store.state.city.let
