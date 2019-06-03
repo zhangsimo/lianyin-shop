@@ -3,7 +3,7 @@
     <ul
       class="listUl"
       ref="ul"
-      v-infinite-scroll="loadMore"
+      v-infinite-scroll="loadMore2"
       :infinite-scroll-disabled="loading"
       infinite-scroll-distance="10"
       :infinite-scroll-immediate-check="isFalse"
@@ -61,7 +61,7 @@ export default {
     }
   },
   methods: {
-    loadMore () {
+    loadMore2 () {
       this.loading = true
       setTimeout(() => {
         this.page++

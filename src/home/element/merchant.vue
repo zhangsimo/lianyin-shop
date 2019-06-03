@@ -13,9 +13,12 @@
             <p class="explain">简介: {{ item.profile }}</p>
           </div>
           <div class="img">
-            <img :src="baseURL + item.header_image_url.split(',')[0]" alt>
+            <span v-for="(item2 ,index2) in item.header_image_url.split(',')" :key="index2">
+              <img :src="baseURL + item2" alt>
+            </span>
+            <!-- <img :src="baseURL + item.header_image_url.split(',')[0]" alt>
             <img :src="baseURL + item.header_image_url.split(',')[1]" alt>
-            <img :src="baseURL + item.header_image_url.split(',')[2]" alt>
+            <img :src="baseURL + item.header_image_url.split(',')[2]" alt>-->
           </div>
           <!-- 商家优惠进行显示判断 -->
           <div class="discounts" v-if="item.goods !== null">
@@ -132,7 +135,7 @@ export default {
         height: 2.72rem /* 204/75 */;
         // height: 3.396296rem /* 205/54 */;
       }
-      img:nth-child(2) {
+      span:nth-child(2) {
         margin: 0 0.133333rem /* 10/75 */; /* 15/75 */
       }
     }

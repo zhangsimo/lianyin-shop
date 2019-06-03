@@ -2,15 +2,9 @@
   <div class="detailsbox">
     <!-- 滚动图片 -->
     <div class="imageList">
-      <ul>
-        <li>
-          <img :src="Url.baseURL + shoplist.goods.title_image.split(',')[0]" alt>
-        </li>
-        <li>
-          <img :src="Url.baseURL + shoplist.goods.title_image.split(',')[1]" alt>
-        </li>
-        <li>
-          <img :src="Url.baseURL + shoplist.goods.title_image.split(',')[2]" alt>
+      <ul ref="imgul">
+        <li v-for="(item ,index) in shoplist.goods.title_image.split(',')" :key="index">
+          <img :src="Url.baseURL + item" alt>
         </li>
       </ul>
     </div>
@@ -76,6 +70,14 @@ export default {
       Url: baseUrl
     }
   },
+  mounted () {
+    let list = this.$refs.imgul
+    if (list.children.length > 2) {
+      list.children.forEach(element => {
+        element.style.float = 'left'
+      })
+    }
+  },
   methods: {
     buyNew (shoplist) {
       this.$store.commit('addOneList', shoplist)
@@ -90,16 +92,15 @@ export default {
   .imageList {
     overflow: hidden;
     text-align: center;
-
     overflow: scroll;
 
     ul {
       // overflow-x: hidden;
-      width: 150%;
+      // width: 150%;
       overflow: hidden;
     }
     li {
-      float: left;
+      display: inline-block;
       img {
         width: 4rem /* 300/75 */;
         height: 2.4rem /* 180/75 */;
