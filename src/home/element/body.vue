@@ -6,22 +6,22 @@
         <p>{{categoryList[0].category.name}}</p>
       </div>
     </div>
-    <div class="retail">
+    <div class="retail" @click="gofood(categoryList[1])">
       <div class="img">
         <img src="../../assets/images/2.png" alt>
-        <p>零售</p>
+        <p>{{categoryList[1].category.name}}</p>
       </div>
     </div>
-    <div class="play">
+    <div class="play" @click="gofood(categoryList[2])">
       <div class="img">
         <img src="../../assets/images/3.png" alt>
-        <p>玩乐</p>
+        <p>{{categoryList[2].category.name}}</p>
       </div>
     </div>
-    <div class="live">
+    <div class="live" @click="gofood(categoryList[3])">
       <div class="img">
         <img src="../../assets/images/4.png" alt>
-        <p>生活</p>
+        <p>{{categoryList[3].category.name}}</p>
       </div>
     </div>
     <!-- 暂时取消 -->
@@ -39,7 +39,7 @@ export default {
   props: ['categoryList'],
   methods: {
     gofood (res) {
-      this.$router.push('/classfiy')
+      this.$router.push({ path: '/classfiy', query: { id: res.category_id } })
     }
   }
 }

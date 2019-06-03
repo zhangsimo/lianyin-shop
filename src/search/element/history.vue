@@ -33,7 +33,6 @@ export default {
       var history = localStorage.getItem('search_list') || '[]' // 得到历史
       var arr = JSON.parse(history) // 转成数组
       this.list = arr
-      console.log(arr)
     },
     trashAll () {
       localStorage.removeItem('search_list')

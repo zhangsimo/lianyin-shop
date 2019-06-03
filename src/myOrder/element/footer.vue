@@ -14,7 +14,7 @@
         </router-link>
       </li>
       <li>
-        <router-link to="/">
+        <router-link to="/user">
           <i class="iconfont">&#xe660;</i>
           <p>我的</p>
         </router-link>

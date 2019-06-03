@@ -1,48 +1,26 @@
 <template>
   <div class="header">
     <div class="left">
-      <router-link to="/" class="iconfont">&#xe62e;</router-link>
+      <a href="javascript:history.back(-1)" class="iconfont">&#xe62e;</a>
     </div>
     <div class="right">
-      <input type="text" placeholder="输入线路搜索" class="ipt" v-model="searchIput" autofocus>
-      <span class="righttitle" @click="addHistory">搜索</span>
+      <a href="javascript:history.back(-1)">
+        <input type="text" placeholder="输入线路搜索" class="ipt" v-model="searchIput" autofocus>
+        <span class="righttitle">搜索</span>
+      </a>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['title'],
   data () {
     return {
-      searchIput: ''
+      searchIput: this.title
     }
   },
-  methods: {
-    addHistory () {
-      if (this.searchIput.trim() === '') {
-        return
-      }
-      let jsonstr = localStorage.getItem('search_list') || '[]'
-      let arr = JSON.parse(jsonstr)
-      this.$router.push({
-        path: '/searchresult',
-        query: { id: this.searchIput }
-      })
-
-      let index = arr.indexOf(this.searchIput)
-      if (index > -1) {
-        // 已经存在, 删除该项
-        arr.splice(index, 1)
-      }
-      // 2. 不能超过10个
-      if (arr.length >= 10) {
-        arr.pop()
-      }
-      arr.unshift(this.searchIput)
-      this.searchIput = ''
-      localStorage.setItem('search_list', JSON.stringify(arr))
-    }
-  },
+  methods: {},
   watch: {
     searchIput () {
       this.$emit('gitSearch', this.searchIput)

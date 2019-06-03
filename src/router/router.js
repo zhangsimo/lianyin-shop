@@ -33,6 +33,10 @@ export default new Router({
     { path: '/status', component: () => import('../status/status.vue') },
     { path: '/order', component: () => import('../myOrder/order.vue') },
     { path: '/erweima', component: () => import('../erweima/erweima.vue') },
-    { path: '/user', component: () => import('../user/user.vue') }
+    { path: '/user', component: () => import('../user/user.vue') },
+    {
+      path: '/searchresult',
+      component: () => import('../searchrult/searchresult.vue')
+    }
   ]
 })

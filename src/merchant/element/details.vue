@@ -61,8 +61,7 @@
       <div class="merchantitleConent">
         <p v-html="shoplist.description"></p>
         <!-- <p>{{ shoplist.description }}</p> -->
-
-        <img src="../../assets/phone.png" alt>
+        <!-- <img src="../../assets/phone.png" alt> -->
       </div>
     </div>
   </div>

@@ -15,7 +15,7 @@
 export default {
   data() {
     return {
-      city: ''
+      city: '常州'
     }
   },
 

@@ -1,9 +1,9 @@
 <template>
   <div>
     <mt-header :title="title" class="collectHeader" :fixed="isFixed">
-      <router-link to="/" slot="left">
+      <a href="javascript:history.back(-1)" slot="left">
         <i class="iconfont collectBack">&#xe62e;</i>
-      </router-link>
+      </a>
     </mt-header>
   </div>
 </template>

@@ -1,7 +1,8 @@
 <template>
   <div class="box">
-    <mayi-header></mayi-header>
-    <mayi-history></mayi-history>
+    <mayi-header @gitSearch="gitSearch"></mayi-header>
+    <mayi-history v-show="concent === '' ? true :false "></mayi-history>
+    <search-result v-show="concent === '' ? false : true" :givesearch="concent"></search-result>
     <!-- <mayi-resule></mayi-resule> -->
   </div>
 </template>
@@ -10,15 +11,18 @@
 import header from '../common/header/header.vue'
 // import result from './element/result.vue'
 import history from './element/history.vue'
+import searchResult from './element/searchresult.vue'
 export default {
   components: {
     mayiHeader: header,
-    mayiHistory: history
+    mayiHistory: history,
+    searchResult
     // mayiResule: result
   },
   data () {
     return {
-      list: []
+      list: [],
+      concent: ''
     }
   },
   created () {
@@ -30,6 +34,9 @@ export default {
       let history = localStorage.getItem('search_list') || '[]' // 得到历史
       let arr = JSON.parse(history) // 转成数组
       this.list = arr
+    },
+    gitSearch (res) {
+      this.concent = res
     }
   }
 }

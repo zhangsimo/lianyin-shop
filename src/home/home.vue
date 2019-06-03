@@ -44,24 +44,18 @@ export default {
       categoryList: ''
     }
   },
-  // mounted() {
-  //   let city = this.$store.state.city
-  //   this.let = city.x
-  //   this.lng = city.y
-  // },
   created() {
-    if (!this.$store.state.city) {
+    if (this.$store.state.city === '') {
       this.maker()
     } else {
       this.let = this.$store.state.city.let
       this.lng = this.$store.state.city.lng
+      this.gitcity()
     }
   },
   methods: {
     maker() {
-      // console.log(AMap.Map)
       let mapObj = new AMap.Map('iCenter')
-      // console.log(mapObj)
       let geolocation
       let that = this
       mapObj.plugin('AMap.Geolocation', function() {
@@ -93,7 +87,19 @@ export default {
           that.let = lat
           that.lng = lng
           // console.log(x, y, city)
+          that.$axios
+            .post('/myapi/index', {
+              lat,
+              lng,
+              token: 1
+            })
+            .then(res => {
+              that.categoryList = res.data.data.categoryList
+              that.BannerList = res.data.data.bannerList
+              that.shopList = res.data.data.shopList
+            })
         }) // 返回定位信息
+
         AMap.event.addListener(geolocation, 'error', function(res) {
           if (res.info == 'FAILED') {
             alert('获取您当前位置失败！')
@@ -121,17 +127,13 @@ export default {
       })
 
       this.page++
-    }
-  },
-  watch: {
-    async let(newQuestion) {
+    },
+    async gitcity() {
       let res = await this.$axios.post('/myapi/index', {
         lat: this.let,
         lng: this.lng,
         token: 1
       })
-      console.log(res)
-
       this.categoryList = res.data.data.categoryList
       this.BannerList = res.data.data.bannerList
       this.shopList = res.data.data.shopList

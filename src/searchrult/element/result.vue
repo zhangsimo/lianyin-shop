@@ -1,9 +1,7 @@
 <template>
   <div class="merchant">
-    <h3>附近商家</h3>
-
-    <ul :style="{ height: contentH + 'px' }" ref="wrapper">
-      <li v-for="(item, index) in shop" :key="index" @click="goMerchant(item.id)">
+    <ul>
+      <li v-for="(item, index) in shopList" :key="index" @click="goMerchant(item.id)">
         <div class="merchantlist">
           <div class="title">
             <h2>{{ item.merchant_name }}</h2>
@@ -55,21 +53,12 @@
 
 <script>
 import variable from '../../global-variable.js'
-
 export default {
-  props: ['shop'],
+  props: ['shopList'],
   data () {
     return {
-      baseURL: variable.baseURL,
-      contentH: ''
+      baseURL: variable.baseURL
     }
-  },
-  mounted () {
-    this.$nextTick(function () {
-      this.contentH =
-        document.documentElement.clientHeight -
-        this.$refs.wrapper.getBoundingClientRect().top
-    })
   },
   methods: {
     goMerchant (id) {
@@ -90,10 +79,7 @@ export default {
       margin-bottom: 0.333333rem /* 25/75 */;
     }
   }
-  h3 {
-    font-size: 0.48rem /* 36/75 */;
-    margin-bottom: 0.333333rem; /* 25/75 */
-  }
+
   .merchantlist {
     width: 100%;
     padding-left: 0.444444rem; /* 24/54 */
@@ -126,7 +112,7 @@ export default {
       text-overflow: ellipsis;
     }
     .img {
-      margin-top: 0.366667rem /* 35/75 */;
+      margin-top: 0.466667rem /* 35/75 */;
       img {
         width: 31% /* 205/54 */;
         height: 2.72rem /* 204/75 */;
@@ -158,8 +144,7 @@ export default {
           font-size: 0.346667rem /* 26/75 */;
         }
         .top {
-          margin-top: 0.1rem;
-          margin-bottom: 0.6rem; /* 45/54 */
+          margin-bottom: 0.833333rem; /* 45/54 */
         }
         .bottom {
           font-size: 0.32rem /* 24/75 */;
