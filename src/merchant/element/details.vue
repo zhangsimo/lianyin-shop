@@ -4,13 +4,13 @@
     <div class="imageList">
       <ul>
         <li>
-          <img src="../../assets/shop3.png" alt>
+          <img :src="Url.baseURL + shoplist.goods.title_image.split(',')[0]" alt>
         </li>
         <li>
-          <img src="../../assets/shop3.png" alt>
+          <img :src="Url.baseURL + shoplist.goods.title_image.split(',')[1]" alt>
         </li>
         <li>
-          <img src="../../assets/shop3.png" alt>
+          <img :src="Url.baseURL + shoplist.goods.title_image.split(',')[2]" alt>
         </li>
       </ul>
     </div>
@@ -217,6 +217,7 @@ export default {
       border-radius: 0.2rem /* 15/75 */;
       box-shadow: 0px 0px 10px 5px /* 20/75 */ #f5f6f6;
       padding: 0.506667rem /* 38/75 */ 0.346667rem /* 26/75 */;
+      overflow: hidden;
       p {
         width: 100%;
         word-wrap: break-word;

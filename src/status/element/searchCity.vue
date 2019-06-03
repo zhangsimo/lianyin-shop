@@ -37,6 +37,12 @@ export default {
   },
   //处理获取到的城市按顺序排名
   async beforeMount() {
+    if (this.$store.state.cityList !== '') {
+      this.cityList = this.$store.state.cityList
+      let res = JSON.parse(localStorage.getItem('mayi_allcity'))
+      this.block = res
+      return
+    }
     let p,
       c,
       blocks = [],
@@ -49,7 +55,6 @@ export default {
         .getFullChars(item.name)
         .toLocaleLowerCase()
         .slice(0, 1)
-
       c = p.charCodeAt(0)
       if (c > 96 && c < 123) {
         if (!d[p]) {
@@ -66,6 +71,7 @@ export default {
     }
     blocks.sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
     this.block = blocks
+    localStorage.setItem('mayi_allcity', JSON.stringify(blocks))
   },
   methods: {
     openCity(e) {

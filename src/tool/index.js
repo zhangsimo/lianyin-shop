@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
@@ -31,6 +32,11 @@ const store = new Vuex.Store({
     changeCity (state, city) {
       state.city = city
     }
-  }
+  },
+  plugins: [
+    createPersistedState({
+      storage: window.sessionStorage
+    })
+  ]
 })
 export default store
