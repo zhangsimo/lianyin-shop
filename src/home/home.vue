@@ -44,13 +44,13 @@ export default {
     }
   },
   created() {
-    if (this.$store.state.city === '') {
-      this.maker()
-    } else {
-      this.let = this.$store.state.city.let
-      this.lng = this.$store.state.city.lng
-      this.gitcity()
-    }
+    // if (this.$store.state.city === '') {
+    this.maker()
+    // } else {
+    //   this.let = this.$store.state.city.let
+    //   this.lng = this.$store.state.city.lng
+    //   this.gitcity()
+    // }
   },
   methods: {
     maker() {

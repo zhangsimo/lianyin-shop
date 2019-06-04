@@ -38,7 +38,7 @@ export default {
   height: 1.333333rem /* 100/75 */ /* 72/75 */;
   width: 100%;
   line-height: 1.333333rem /* 100/75 */;
-  padding-top: 0.32rem /* 24/75 */;
+  // padding-top: 0.rem /* 24/75 */;
   z-index: 999;
   background-color: #fff;
   box-sizing: border-box;
