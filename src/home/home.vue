@@ -3,12 +3,12 @@
     <mayi-header></mayi-header>
     <div class="prdListWrap">
       <mt-loadmore
-        :bottom-method="loadBottom"
-        bottomPullText
-        :bottomDistance="0"
-        :autoFill="false"
-        ref="loadmore"
+        v-infinite-scroll="loadMore"
+        infinite-scroll-disabled="loading"
+        infinite-scroll-distance="10"
+        immediate-check="false"
       >
+        >
         <mayi-body :categoryList="categoryList"></mayi-body>
         <mayi-swipe :banner="BannerList"></mayi-swipe>
         <mayi-merchant :shop="shopList"></mayi-merchant>
@@ -40,14 +40,12 @@ export default {
       BannerList: '',
       shopList: '',
       contentH: '',
-      page: 2,
+      page: 1,
       categoryList: ''
     }
   },
   created() {
     if (this.$store.state.city === '') {
-      console.log(123456)
-
       this.maker()
     } else {
       this.let = this.$store.state.city.let
@@ -88,7 +86,6 @@ export default {
           })
           that.let = lat
           that.lng = lng
-          // console.log(x, y, city)
           that.$axios
             .post('/myapi/index', {
               lat,
@@ -109,8 +106,11 @@ export default {
         }) // 返回定位出错信息
       })
     },
-    loadBottom() {
+    loadMore() {
       // 加载更多数据
+      console.log(123, this.page)
+
+      this.loading = true
       this.$axios
         .post('/myapi/index', {
           lat: this.let,
@@ -123,11 +123,11 @@ export default {
           this.shopList = list.concat(res.data.data.shopList)
         })
 
-      this.allLoaded = true // 若数据已全部获取完毕
-      this.$nextTick(function() {
-        this.$refs.loadmore.onBottomLoaded()
-      })
-
+      // this.allLoaded = true // 若数据已全部获取完毕
+      // this.$nextTick(function() {
+      //   this.$refs.loadmore.onBottomLoaded()
+      // })
+      this.loading = false
       this.page++
     },
     async gitcity() {
