@@ -32,7 +32,7 @@ export default {
 
 <style lang='less' scoped>
 .box {
-  padding-top: 1.333333rem /* 100/75 */;
+  padding-top: 1.466667rem /* 110/75 */;
   background-color: #ffffff;
 }
 </style>
