@@ -83,6 +83,10 @@ export default {
             y: lng,
             name: res.addressComponent.city
           })
+          that.$store.commit('useraddress', {
+            lat,
+            lng
+          })
           that.let = lat
           that.lng = lng
           that.$axios
@@ -92,7 +96,6 @@ export default {
               token: 1
             })
             .then(res => {
-              console.log(res)
               that.categoryList = res.data.data.categoryList
               that.BannerList = res.data.data.bannerList
               that.shopList = res.data.data.shopList

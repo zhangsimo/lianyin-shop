@@ -2,31 +2,38 @@
   <div class="merchant">
     <h3>附近商家</h3>
     <ul>
-      <li v-for="(item ,index) in shoplist" :key="index" @click="gomerchant(item.id)">
+      <li
+        v-for="(item, index) in shoplist"
+        :key="index"
+        @click="gomerchant(item.id)"
+      >
         <div class="merchantlist">
           <div class="title">
-            <h2>{{item.merchant_name}}</h2>
-            <p>{{item.distance}}km</p>
+            <h2>{{ item.merchant_name }}</h2>
+            <p>{{ item.distance }}km</p>
           </div>
           <div>
             <p class="explain">
               <span class="titleft">简介:</span>
-              <span v-html="item.description" class="titleft"></span>
+              {{ item.profile }}
             </p>
           </div>
           <div class="img">
-            <img :src="baseURL + item.header_image_url.split(',')[0]" alt>
-            <img :src="baseURL + item.header_image_url.split(',')[1]" alt>
-            <img :src="baseURL + item.header_image_url.split(',')[2]" alt>
-            <!-- <img src="../../assets/shop1.png" alt>
-            <img src="../../assets/shop1.png" alt>
-            <img src="../../assets/shop1.png" alt>-->
+            <img
+              v-for="(item2, index2) in item.header_image_url.split(',')"
+              :key="index2"
+              :src="baseURL + item2"
+              alt=""
+            />
           </div>
           <div class="discounts" v-if="item.goods !== null">
             <p>商家优惠</p>
             <div>
               <div class="left">
-                <img :src="baseURL + item.goods.title_image.split(',')[0]" alt>
+                <img
+                  :src="baseURL + item.goods.title_image.split(',')[0]"
+                  alt
+                />
               </div>
               <div class="right">
                 <h5 class="top">{{ item.goods.description }}</h5>

@@ -19,7 +19,22 @@
           地址:
           {{ shoplist.address_info }}
         </p>
-        <span class="iconfont">&#xe632;</span>
+        <!--  eslint-disable -->
+        <a
+          :href="
+            'http://uri.amap.com/navigation?from=' +
+              useraddress.lng +
+              ',' +
+              useraddress.lat +
+              '&to=' +
+              shoplist.lng +
+              ',' +
+              shoplist.lat +
+              '&mode=car&src=nyx_super'
+          "
+        >
+          <span class="iconfont">&#xe632;</span>
+        </a>
       </div>
       <div>
         电话:
@@ -78,24 +93,26 @@ export default {
   data () {
     return {
       Url: baseUrl,
-      contentH: ''
+      contentH: '',
+      useraddress: ''
     }
   },
   mounted () {
-    let list = this.$refs.imgul
-    console.log(list.children)
-    this.$nextTick(function () {
-      this.contentH =
-        document.documentElement.clientWidth -
-        this.$refs.imgul.getBoundingClientRect().width
-      if (list.children.length > 2) {
-        list.children.forEach(element => {
-          console.log(element)
+    // let list = this.$refs.imgul
+    // this.$nextTick(function () {
+    //   this.contentH =
+    //     document.documentElement.clientWidth -
+    //     this.$refs.imgul.getBoundingClientRect().width
+    //   if (list.children.length > 2) {
+    //     list.children.forEach(element => {
+    //       console.log(element)
 
-          element.style.float = 'left'
-        })
-      }
-    })
+    //       element.style.float = 'left'
+    //     })
+    //   }
+    // })
+    this.useraddress = this.$store.state.useraddress
+    console.log(this.useraddress)
   },
   methods: {
     buyNew (shoplist) {
