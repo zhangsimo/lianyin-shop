@@ -21,7 +21,7 @@ const store = new Vuex.Store({
     // 首页获取到的城市
     getCity (state, city) {
       state.city = city
-      console.log(state.city)
+      // console.log(state.city)
     },
     // 获取全部城市
     getAllCity (state, list) {
