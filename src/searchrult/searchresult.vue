@@ -38,8 +38,6 @@ export default {
           page: this.page
         })
         .then(res => {
-          console.log(res)
-
           this.shopList = res.data.data.shopList
         })
     }

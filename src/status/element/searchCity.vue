@@ -8,7 +8,7 @@
       <div class="lately">
         <p>定位/最近访问</p>
         <div>
-          <span v-for="(item,index) in historyCity" :key="index">{{item}}</span>
+          <span v-for="(item,index) in historyCity" :key="index" @click="history(item)">{{item}}</span>
         </div>
       </div>
 
@@ -90,6 +90,13 @@ export default {
       var history = localStorage.getItem('status_list') || '[]' // 得到历史
       var arr = JSON.parse(history) // 转成数组
       this.historyCity = arr
+    },
+    history(item) {
+      let city = this.cityList.filter(ele => ele.name === item)[0]
+      historyCity.hoistoryCity(city.name)
+      this.$store.commit('changeCity', city)
+      // 跳转首页
+      this.$router.push('/home')
     }
   }
 }

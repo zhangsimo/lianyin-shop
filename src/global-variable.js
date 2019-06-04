@@ -1,4 +1,4 @@
-const baseURL = 'http://ant-admin.9vdata.com/'
+const baseURL = 'http://ant-image.9vdata.com/'
 const hoistoryCity = function (cityName) {
   let jsonstr = localStorage.getItem('status_list') || '[]'
   let arr = JSON.parse(jsonstr)

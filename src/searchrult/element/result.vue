@@ -11,9 +11,12 @@
             <p class="explain">简介: {{ item.profile }}</p>
           </div>
           <div class="img">
-            <img :src="baseURL + item.header_image_url.split(',')[0]" alt>
-            <img :src="baseURL + item.header_image_url.split(',')[1]" alt>
-            <img :src="baseURL + item.header_image_url.split(',')[2]" alt>
+            <img
+              v-for="(item2 ,index2) in item.header_image_url.split(',')"
+              :key="index2"
+              :src="baseURL + item2"
+              alt
+            >
           </div>
           <!-- 商家优惠进行显示判断 -->
           <div class="discounts" v-if="item.goods !== null">

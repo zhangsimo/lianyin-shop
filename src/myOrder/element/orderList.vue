@@ -1,16 +1,33 @@
 <template>
   <div class="orderListBox">
     <mt-navbar v-model="selected">
-      <mt-tab-item id="1">全部</mt-tab-item>
-      <mt-tab-item id="2">待付款</mt-tab-item>
-      <mt-tab-item id="3">待使用</mt-tab-item>
-      <mt-tab-item id="4">已完成</mt-tab-item>
+      <mt-tab-item id="1">
+        <router-link to="/allorderlist" @click="changecolor">全部</router-link>
+      </mt-tab-item>
+      <mt-tab-item id="2">
+        <router-link to="/staybuy">代付款</router-link>
+      </mt-tab-item>
+      <mt-tab-item id="3">
+        <router-link to="/stayuse">待使用</router-link>
+      </mt-tab-item>
+      <mt-tab-item id="4">
+        <router-link to="/done">已完成</router-link>
+      </mt-tab-item>
     </mt-navbar>
+    <!-- <ul>
+      <li @click="addall">
+        <router-link to="/allorderlist">全部</router-link>
+      </li>
+      <li>代付款</li>
+    </ul>-->
+    <div>
+      <router-view></router-view>
+    </div>
 
     <!-- tab-container -->
-    <mt-tab-container v-model="selected">
+    <!-- <mt-tab-container v-model="selected">
       <mt-tab-container-item id="1">
-        <all-order-list></all-order-list>
+        <router-view></router-view>
       </mt-tab-container-item>
       <mt-tab-container-item id="2">
         <stay-buy></stay-buy>
@@ -21,25 +38,30 @@
       <mt-tab-container-item id="4">
         <done></done>
       </mt-tab-container-item>
-    </mt-tab-container>
+    </mt-tab-container>-->
   </div>
 </template>
 
 <script>
-import allOrderList from './allorderlist.vue'
-import stayUse from './stayuse.vue'
-import stayBuy from './staybuy.vue'
-import done from './done.vue'
+// import allOrderList from './allorderlist.vue'
+// import stayUse from './stayuse.vue'
+// import stayBuy from './staybuy.vue'
+// import done from './done.vue'
 export default {
   components: {
-    allOrderList,
-    stayUse,
-    stayBuy,
-    done
+    // allOrderList,
+    // stayUse,
+    // stayBuy,
+    // done
   },
   data () {
     return {
       selected: '1'
+    }
+  },
+  methods: {
+    changecolor () {
+      console.log(123)
     }
   }
 }
@@ -50,6 +72,10 @@ export default {
   padding: 0 0.48rem /* 36/75 */;
   box-sizing: border-box;
   background-color: #fafafa;
+  a {
+    text-decoration: none;
+    color: #222222;
+  }
 }
 </style>
 <style lang="less">

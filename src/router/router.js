@@ -31,7 +31,29 @@ export default new Router({
       component: () => import('../addressSearch/addressSearch.vue')
     },
     { path: '/status', component: () => import('../status/status.vue') },
-    { path: '/order', component: () => import('../myOrder/order.vue') },
+    {
+      path: '/order',
+      component: () => import('../myOrder/order.vue'),
+      redirect: '/allorderlist',
+      children: [
+        {
+          path: '/allorderlist',
+          component: () => import('../myOrder/element/allorderList.vue')
+        },
+        {
+          path: '/stayuse',
+          component: () => import('../myOrder/element/stayuse.vue')
+        },
+        {
+          path: '/staybuy',
+          component: () => import('../myOrder/element/staybuy.vue')
+        },
+        {
+          path: '/done',
+          component: () => import('../myOrder/element/done.vue')
+        }
+      ]
+    },
     { path: '/erweima', component: () => import('../erweima/erweima.vue') },
     { path: '/user', component: () => import('../user/user.vue') },
     {
