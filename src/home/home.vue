@@ -4,10 +4,10 @@
     <div class="prdListWrap">
       <mt-loadmore
         :bottom-method="loadBottom"
-        ref="loadmore"
         bottomPullText
         :bottomDistance="0"
         :autoFill="false"
+        ref="loadmore"
       >
         <mayi-body :categoryList="categoryList"></mayi-body>
         <mayi-swipe :banner="BannerList"></mayi-swipe>
@@ -104,7 +104,7 @@ export default {
 
         AMap.event.addListener(geolocation, 'error', function(res) {
           if (res.info == 'FAILED') {
-            alert('获取您当前位置失败！')
+            // alert('获取您当前位置失败！')
           }
         }) // 返回定位出错信息
       })

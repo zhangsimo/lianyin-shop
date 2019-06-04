@@ -2,7 +2,8 @@
   <div class="merchant">
     <h3>附近商家</h3>
 
-    <ul :style="{ height: contentH + 'px' }" ref="wrapper">
+    <ul>
+      <!-- :style="{ height: contentH + 'px' }" ref="wrapper" -->
       <li v-for="(item, index) in shop" :key="index" @click="goMerchant(item.id)">
         <div class="merchantlist">
           <div class="title">
@@ -67,13 +68,13 @@ export default {
       contentH: ''
     }
   },
-  mounted () {
-    this.$nextTick(function () {
-      this.contentH =
-        document.documentElement.clientHeight -
-        this.$refs.wrapper.getBoundingClientRect().top
-    })
-  },
+  // mounted () {
+  //   this.$nextTick(function () {
+  //     this.contentH =
+  //       document.documentElement.clientHeight -
+  //       this.$refs.wrapper.getBoundingClientRect().top
+  //   })
+  // },
   methods: {
     goMerchant (id) {
       this.$router.push({ path: '/merchant', query: { id: id } })
