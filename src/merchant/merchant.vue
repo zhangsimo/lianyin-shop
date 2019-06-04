@@ -28,6 +28,7 @@ export default {
         id: id,
         token: 1
       })
+
       this.shopList = res.data.data.shopDetail
     }
   }

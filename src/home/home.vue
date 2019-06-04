@@ -5,10 +5,10 @@
       <mt-loadmore
         v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
-        infinite-scroll-distance="10"
-        immediate-check="false"
+        infinite-scroll-distance="0"
+        infinite-scroll-immediate-check="fasle"
       >
-        <mayi-body :categoryList="categoryList"></mayi-body>
+        <mayi-body v-model="categoryList"></mayi-body>
         <mayi-swipe :banner="BannerList"></mayi-swipe>
         <mayi-merchant :shop="shopList"></mayi-merchant>
       </mt-loadmore>
@@ -40,7 +40,8 @@ export default {
       shopList: '',
       contentH: '',
       page: 1,
-      categoryList: ''
+      categoryList: '',
+      isMoreLoading: false
     }
   },
   created() {
@@ -73,7 +74,6 @@ export default {
         })
         mapObj.addControl(geolocation)
         geolocation.getCurrentPosition()
-        console.log(mapObj)
         AMap.event.addListener(geolocation, 'complete', function(res) {
           let lat = res.position.getLng() // 定位成功返回的经度
           let lng = res.position.getLat() // 定位成功返回的纬度
@@ -92,6 +92,7 @@ export default {
               token: 1
             })
             .then(res => {
+              console.log(res)
               that.categoryList = res.data.data.categoryList
               that.BannerList = res.data.data.bannerList
               that.shopList = res.data.data.shopList
@@ -101,71 +102,31 @@ export default {
         AMap.event.addListener(geolocation, 'error', function(res) {
           if (res.info == 'FAILED') {
             // alert('获取您当前位置失败！')
+            this.$axios
+              .post('/myapi/index', {
+                lat: 119.946973,
+                lng: 31.772752,
+                token: 1
+              })
+              .then(res => {
+                that.categoryList = res.data.data.categoryList
+                that.BannerList = res.data.data.bannerList
+                that.shopList = res.data.data.shopList
+              })
+            this.$store.commit('getCity', {
+              x: 119.946973,
+              y: 31.772752,
+              name: '常州'
+            })
           }
         }) // 返回定位出错信息
       })
-      // var that = this
-      // var map = new AMap.Map('container', {
-      //   resizeEnable: true
-      // })
-      // map.plugin('AMap.Geolocation', function() {
-      //   var geolocation = new AMap.Geolocation({
-      //     // 是否使用高精度定位，默认：true
-      //     enableHighAccuracy: true,
-      //     // 设置定位超时时间，默认：无穷大
-      //     timeout: 10000,
-      //     // 定位按钮的停靠位置的偏移量，默认：Pixel(10, 20)
-      //     buttonOffset: new AMap.Pixel(10, 20),
-      //     //  定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
-      //     zoomToAccuracy: true,
-      //     //  定位按钮的排放位置,  RB表示右下
-      //     buttonPosition: 'RB'
-      //   })
-
-      //   geolocation.getCurrentPosition()
-      //   AMap.event.addListener(geolocation, 'complete', onComplete)
-      //   AMap.event.addListener(geolocation, 'error', onError)
-
-      //   function onComplete(data) {
-      //     // data是具体的定位信息
-      //     // console.log(data.position.lat, data.position.lng)
-
-      //     var lat = data.position.lat
-      //     var lng = data.position.lng
-      //     that.city = data.addressComponent.city
-
-      //     that.$store.commit('getCity', {
-      //       x: lat,
-      //       y: lng,
-      //       name: data.addressComponent.city
-      //     })
-      //     that.let = lat
-      //     that.lng = lng
-
-      //     that.$axios
-      //       .post('/myapi/index', {
-      //         lat,
-      //         lng,
-      //         page: that.page,
-      //         token: 1
-      //       })
-      //       .then(res => {
-      //         console.log(res)
-      //         that.categoryList = res.data.data.categoryList
-      //         that.BannerList = res.data.data.bannerList
-      //         that.shopList = res.data.data.shopList
-      //       })
-      //   }
-
-      //   function onError(data) {
-      //     // 定位出错
-      //     console.log(data)
-      //   }
-      // })
     },
     loadMore() {
       // 加载更多数据
-
+      if (this.shopList.length % 10 !== 0) {
+        return
+      }
       this.loading = true
       this.$axios
         .post('/myapi/index', {
@@ -178,11 +139,6 @@ export default {
           let list = JSON.parse(JSON.stringify(this.shopList))
           this.shopList = list.concat(res.data.data.shopList)
         })
-
-      // this.allLoaded = true // 若数据已全部获取完毕
-      // this.$nextTick(function() {
-      //   this.$refs.loadmore.onBottomLoaded()
-      // })
       this.loading = false
       this.page++
     },
@@ -212,10 +168,10 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  // overflow-y: hidden;
   padding-top: 1.333333rem /* 100/75 */;
   box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
+  // -webkit-overflow-scrolling: touch;
 }
 </style>
 <style lang="less">

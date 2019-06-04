@@ -2,24 +2,31 @@
   <div class="detailsbox">
     <!-- 滚动图片 -->
     <div class="imageList">
-      <ul ref="imgul">
-        <li v-for="(item ,index) in shoplist.goods.title_image.split(',')" :key="index">
-          <img :src="Url.baseURL + item" alt>
+      <ul ref="imgul" :style="{ width: contentH + 'px' }">
+        <li
+          v-for="(item, index) in shoplist.header_image_url.split(',')"
+          :key="index"
+        >
+          <img :src="Url.baseURL + item" alt />
         </li>
       </ul>
     </div>
     <!-- 商店详情 -->
     <div class="address">
       <h3>{{ shoplist.merchant_name }}</h3>
-      <div>
-        地址:
-        <span>{{ shoplist.address_info }}</span>
+      <div class="addressbox">
+        <p class="addresstitle">
+          地址:
+          {{ shoplist.address_info }}
+        </p>
         <span class="iconfont">&#xe632;</span>
       </div>
       <div>
         电话:
         <span>{{ shoplist.mobile }}</span>
-        <span class="iconfont">&#xe63e;</span>
+        <a :href="'tel:' + shoplist.mobile">
+          <span class="iconfont">&#xe63e;</span>
+        </a>
       </div>
     </div>
     <!-- 优惠信息 -->
@@ -28,7 +35,10 @@
       <div class="discounts">
         <div>
           <div class="left">
-            <img :src="Url.baseURL + shoplist.goods.title_image.split(',')[0]" alt>
+            <img
+              :src="Url.baseURL + shoplist.goods.title_image.split(',')[0]"
+              alt
+            />
           </div>
           <div class="right">
             <h5 class="top">{{ shoplist.goods.title }}</h5>
@@ -67,16 +77,25 @@ export default {
   props: ['shoplist'],
   data () {
     return {
-      Url: baseUrl
+      Url: baseUrl,
+      contentH: ''
     }
   },
   mounted () {
     let list = this.$refs.imgul
-    if (list.children.length > 2) {
-      list.children.forEach(element => {
-        element.style.float = 'left'
-      })
-    }
+    console.log(list.children)
+    this.$nextTick(function () {
+      this.contentH =
+        document.documentElement.clientWidth -
+        this.$refs.imgul.getBoundingClientRect().width
+      if (list.children.length > 2) {
+        list.children.forEach(element => {
+          console.log(element)
+
+          element.style.float = 'left'
+        })
+      }
+    })
   },
   methods: {
     buyNew (shoplist) {
@@ -96,11 +115,12 @@ export default {
 
     ul {
       // overflow-x: hidden;
-      // width: 150%;
+      width: 13rem;
       overflow: hidden;
     }
     li {
-      display: inline-block;
+      // display: inline-block;
+      float: left;
       img {
         width: 4rem /* 300/75 */;
         height: 2.4rem /* 180/75 */;
@@ -223,10 +243,27 @@ export default {
         width: 100%;
         word-wrap: break-word;
       }
-      img {
-        width: 100%;
-        margin-top: 0.2rem /* 15/75 */;
-      }
+    }
+  }
+}
+.addresstitle {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  float: left;
+  // padding-right: 1.333333rem /* 100/75 */;
+  width: 80%;
+  box-sizing: border-box;
+}
+.addressbox {
+  overflow: hidden;
+}
+</style>
+<style lang="less">
+.merchantitleConent {
+  a {
+    img {
+      width: 100%;
     }
   }
 }

@@ -20,7 +20,7 @@ flexible()
 Vue.config.productionTip = false
 
 //导航拦截守卫
-
+// axios.defaults.baseURL = 'http://ant-api.9vdata.com/'
 // axios.defaults.headers.common['Authorization'] = 1
 // axios.interceptors.request.use(
 //   function(config) {

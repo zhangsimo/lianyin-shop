@@ -5,20 +5,22 @@
       ref="ul"
       v-infinite-scroll="loadMore2"
       :infinite-scroll-disabled="loading"
-      infinite-scroll-distance="10"
+      infinite-scroll-distance="0"
       :infinite-scroll-immediate-check="isFalse"
     >
       <li class="allli" v-for="(item, index) in list" :key="index">
         <div class="title">
           <span class="titleLeft">{{ item.goods.goods_name }}</span>
           <span class="titleright" v-if="item.shop.status === 0">待付款</span>
-          <span class="titleright" v-else-if="item.shop.status === 1">待使用</span>
+          <span class="titleright" v-else-if="item.shop.status === 1"
+            >待使用</span
+          >
           <span class="titleright" v-if="item.shop.status === 2">已使用</span>
         </div>
         <div class="discounts">
           <div>
             <div class="left">
-              <img src="../../assets/shop3.png" alt>
+              <img src="../../assets/shop3.png" alt />
             </div>
             <div class="right">
               <h5 class="top">{{ item.shop.profile }}</h5>

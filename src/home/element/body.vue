@@ -1,29 +1,34 @@
 <template>
   <div class="classify">
-    <div class="food" @click="gofood(categoryList[0])">
+    <div
+      class="food"
+      v-for="(item, index) in value"
+      :key="index"
+      @click="gofood(item)"
+    >
       <div class="img">
-        <img src="../../assets/images/1.png" alt>
-        <p>{{categoryList[0].category.name}}</p>
+        <img :src="Url + item.image_url" alt />
+        <p>{{ item.category.name }}</p>
       </div>
     </div>
-    <div class="retail" @click="gofood(categoryList[1])">
+    <!-- <div class="retail" @click="gofood(value[1])">
       <div class="img">
-        <img src="../../assets/images/2.png" alt>
-        <p>{{categoryList[1].category.name}}</p>
+        <img src="../../assets/images/2.png" alt />
+        <p>{{ value[1].category.name }}</p>
       </div>
-    </div>
-    <div class="play" @click="gofood(categoryList[2])">
+    </div> -->
+    <!-- <div class="play" @click="gofood(value[2])">
       <div class="img">
         <img src="../../assets/images/3.png" alt>
-        <p>{{categoryList[2].category.name}}</p>
+        <p>{{value[2].category.name}}</p>
       </div>
     </div>
-    <div class="live" @click="gofood(categoryList[3])">
+    <div class="live" @click="gofood(value[3])">
       <div class="img">
         <img src="../../assets/images/4.png" alt>
-        <p>{{categoryList[3].category.name}}</p>
-      </div>
-    </div>
+        <p>{{value[3].category.name}}</p>
+    </div> -->
+    <!-- </div> -->
     <!-- 暂时取消 -->
     <!-- <div class="travel">
       <div class="img">
@@ -35,8 +40,14 @@
 </template>
 
 <script>
+import Url from '../../global-variable.js'
 export default {
-  props: ['categoryList'],
+  props: ['value'],
+  data () {
+    return {
+      Url: Url.baseURL
+    }
+  },
   methods: {
     gofood (res) {
       this.$router.push({ path: '/classfiy', query: { id: res.category_id } })
