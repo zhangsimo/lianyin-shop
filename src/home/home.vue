@@ -39,7 +39,7 @@ export default {
       BannerList: '',
       shopList: '',
       contentH: '',
-      page: 1,
+      page: 2,
       categoryList: '',
       isMoreLoading: false
     }

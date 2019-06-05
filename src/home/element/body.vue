@@ -1,41 +1,11 @@
 <template>
   <div class="classify">
-    <div
-      class="food"
-      v-for="(item, index) in value"
-      :key="index"
-      @click="gofood(item)"
-    >
+    <div class="food" v-for="(item, index) in value" :key="index" @click="gofood(item)">
       <div class="img">
-        <img :src="Url + item.image_url" alt />
+        <img :src="Url + item.image_url" alt>
         <p>{{ item.category.name }}</p>
       </div>
     </div>
-    <!-- <div class="retail" @click="gofood(value[1])">
-      <div class="img">
-        <img src="../../assets/images/2.png" alt />
-        <p>{{ value[1].category.name }}</p>
-      </div>
-    </div> -->
-    <!-- <div class="play" @click="gofood(value[2])">
-      <div class="img">
-        <img src="../../assets/images/3.png" alt>
-        <p>{{value[2].category.name}}</p>
-      </div>
-    </div>
-    <div class="live" @click="gofood(value[3])">
-      <div class="img">
-        <img src="../../assets/images/4.png" alt>
-        <p>{{value[3].category.name}}</p>
-    </div> -->
-    <!-- </div> -->
-    <!-- 暂时取消 -->
-    <!-- <div class="travel">
-      <div class="img">
-        <img src="../../assets/images/4.png" alt />
-        <p>旅行</p>
-      </div>
-    </div>-->
   </div>
 </template>
 
