@@ -16,29 +16,17 @@
           地址:
           {{ shoplist.address_info }}
         </p>
-        <!-- <a
-          :href="
-            'http://uri.amap.com/navigation?from=' +
-              useraddress.lng +
-              ',' +
-              useraddress.lat +
-              '&to=' +
-              shoplist.lng +
-              ',' +
-              shoplist.lat +
-              '&mode=car&src=nyx_super'
-          "
-        >-->
-        <!--  eslint-disable -->
-        <a :href="'https://uri.amap.com/marker?position='+ shoplist.lng+','+shoplist.lng ">
-          <span class="iconfont">&#xe632;</span>
+        <a
+          :href="'https://uri.amap.com/marker?position='+ shoplist.lng+','+shoplist.lng+'&name='+shoplist.merchant_name+'&src=lanyinshop&callnative=0' "
+        >
+          <img src="../../assets/images/定位.png" class="icon" alt>
         </a>
       </div>
       <div>
         电话:
         <span>{{ shoplist.mobile }}</span>
         <a :href="'tel:' + shoplist.mobile">
-          <span class="iconfont">&#xe63e;</span>
+          <img src="../../assets/images/iphone.png" class="icon" alt>
         </a>
       </div>
     </div>
@@ -74,8 +62,6 @@
     <div class="merchantitle">
       <div class="merchantitleConent">
         <p v-html="shoplist.description"></p>
-        <!-- <p>{{ shoplist.description }}</p> -->
-        <!-- <img src="../../assets/phone.png" alt> -->
       </div>
     </div>
   </div>
@@ -93,21 +79,7 @@ export default {
     }
   },
   mounted () {
-    // let list = this.$refs.imgul
-    // this.$nextTick(function () {
-    //   this.contentH =
-    //     document.documentElement.clientWidth -
-    //     this.$refs.imgul.getBoundingClientRect().width
-    //   if (list.children.length > 2) {
-    //     list.children.forEach(element => {
-    //       console.log(element)
-
-    //       element.style.float = 'left'
-    //     })
-    //   }
-    // })
     this.useraddress = this.$store.state.useraddress
-    console.log(this.useraddress)
   },
   methods: {
     buyNew (shoplist) {
@@ -158,11 +130,10 @@ export default {
       font-size: 0.346667rem /* 26/75 */;
       color: #222222;
       line-height: 0.72rem /* 54/75 */;
-      .iconfont {
+      .icon {
         float: right;
-        font-size: 0.72rem /* 54/75 */;
-        color: #0266ff;
-        font-weight: 300;
+        width: 0.48rem /* 36/75 */;
+        margin-top: 0.133333rem; /* 10/75 */
       }
     }
     div:nth-child(2) {

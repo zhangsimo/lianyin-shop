@@ -2,7 +2,9 @@
   <div class="header">
     <div class="left" @click="changeCity">
       {{ this.$store.state.city.name }}
-      <i>∨</i>
+      <i>
+        <img src="../../assets/images/50177ce7de7c03ca3354d35d9e4ef90.png" alt>
+      </i>
     </div>
     <div class="right">
       <input type="text" placeholder="输入线路搜索" class="ipt" @click="tosearch">
@@ -48,6 +50,10 @@ export default {
     // width: 2.186667rem /* 164/75 */;
     font-size: 0.426667rem; /* 32/75 */
     box-sizing: border-box;
+    img {
+      margin-right: 0.166667rem; /* 5/75 */
+      width: 0.373333rem /* 28/75 */;
+    }
   }
   .right {
     overflow: hidden;

@@ -1,7 +1,9 @@
 <template>
   <div class="header">
     <div class="left">
-      <a href="javas cript:history.back(-1)" class="iconfont">&#xe62e;</a>
+      <a href="javas cript:history.back(-1)">
+        <img src="../../assets/images/reture.png" alt>
+      </a>
     </div>
     <div class="right">
       <input type="text" placeholder="城市/拼音" class="ipt" v-model="statusIput">
@@ -49,11 +51,16 @@ export default {
     float: left;
     width: 1.173333rem /* 88/75 */;
     font-size: 0.373333rem /* 28/75 */;
+    padding-top: 0.133333rem; /* 10/75 */
     box-sizing: border-box;
+    margin-right: 0.133333rem /* 10/75 */;
     a {
       text-decoration: none;
       font-size: 0.333333rem /* 25/75 */;
       font-weight: 9.333333rem; /* 700/75 */
+      img {
+        width: 0.56rem /* 42/75 */;
+      }
     }
   }
   .right {

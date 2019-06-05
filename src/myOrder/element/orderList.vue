@@ -14,31 +14,10 @@
         <router-link to="/done">已完成</router-link>
       </mt-tab-item>
     </mt-navbar>
-    <!-- <ul>
-      <li @click="addall">
-        <router-link to="/allorderlist">全部</router-link>
-      </li>
-      <li>代付款</li>
-    </ul>-->
+
     <div>
       <router-view></router-view>
     </div>
-
-    <!-- tab-container -->
-    <!-- <mt-tab-container v-model="selected">
-      <mt-tab-container-item id="1">
-        <router-view></router-view>
-      </mt-tab-container-item>
-      <mt-tab-container-item id="2">
-        <stay-buy></stay-buy>
-      </mt-tab-container-item>
-      <mt-tab-container-item id="3">
-        <stay-use></stay-use>
-      </mt-tab-container-item>
-      <mt-tab-container-item id="4">
-        <done></done>
-      </mt-tab-container-item>
-    </mt-tab-container>-->
   </div>
 </template>
 

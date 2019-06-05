@@ -1,7 +1,9 @@
 <template>
   <div class="header">
     <div class="left">
-      <router-link to="/" class="iconfont">&#xe62e;</router-link>
+      <router-link to="/">
+        <img src="../../assets/images/reture.png">
+      </router-link>
     </div>
     <div class="right">
       <input type="text" placeholder="输入线路搜索" class="ipt" v-model="searchIput" autofocus>
@@ -73,6 +75,10 @@ export default {
       text-decoration: none;
       font-size: 0.333333rem /* 25/75 */;
       font-weight: 9.333333rem; /* 700/75 */
+      img {
+        width: 0.586667rem /* 44/75 */;
+        margin-top: 0.225rem; /* 15/75 */
+      }
     }
   }
   .right {

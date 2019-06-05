@@ -1,21 +1,21 @@
 <template>
   <div class="footer">
-    <ul @click="addColor">
+    <ul>
       <li>
         <router-link to="/" class="color">
-          <i class="iconfont">&#xe60d;</i>
+          <img src="../../assets/images/home-blue.png" alt>
           <p>首页</p>
         </router-link>
       </li>
       <li>
         <router-link to="/order">
-          <i class="iconfont">&#xe630;</i>
+          <img src="../../assets/images/dd-w.png" alt>
           <p>订单</p>
         </router-link>
       </li>
       <li>
         <router-link to="/user">
-          <i class="iconfont">&#xe660;</i>
+          <img src="../../assets/images/me-w.png" alt>
           <p>我的</p>
         </router-link>
       </li>
@@ -26,14 +26,14 @@
 <script>
 export default {
   methods: {
-    addColor (e) {
-      if (e.target.localName === 'p' || e.target.localName === 'i') {
-        let res = e.target.parentNode.parentNode.parentNode.children
-        for (let i = 0; i < res.length; i++) {
-          res[i].firstElementChild.className = ''
-        }
-      }
-    }
+    // addColor (e) {
+    //   if (e.target.localName === 'p' || e.target.localName === 'i') {
+    //     let res = e.target.parentNode.parentNode.parentNode.children
+    //     for (let i = 0; i < res.length; i++) {
+    //       res[i].firstElementChild.className = ''
+    //     }
+    //   }
+    // }
   }
 }
 </script>
@@ -57,13 +57,10 @@ export default {
       text-align: center;
       height: 1.266667rem /* 95/75 */;
 
-      i {
-        font-size: 0.48rem /* 36/75 */;
-        z-index: -5;
-        display: block;
+      img {
+        width: 0.613333rem /* 46/75 */; /* 36/75 */
       }
       p {
-        padding-top: 0.092593rem /* 5/54 */;
         font-size: 0.32rem /* 24/75 */;
         z-index: -5;
       }
@@ -75,6 +72,6 @@ a {
   color: #000;
 }
 .color {
-  color: #3d45f4;
+  color: #037fff;
 }
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div class="header">
     <div class="left">
-      <a href="javascript:history.back(-1)" class="iconfont">&#xe62e;</a>
+      <a href="javascript:history.back(-1)">
+        <img src="../../assets/images/reture.png" alt>
+      </a>
     </div>
     <div class="right">
       <a href="javascript:history.back(-1)">
@@ -51,6 +53,9 @@ export default {
       text-decoration: none;
       font-size: 0.333333rem /* 25/75 */;
       font-weight: 9.333333rem; /* 700/75 */
+      img {
+        width: 0.56rem /* 42/75 */;
+      }
     }
   }
   .right {
@@ -73,6 +78,7 @@ export default {
     .righttitle {
       float: right;
       font-size: 0.426667rem /* 32/75 */; /* 32/54 */
+      color: #000;
     }
   }
 }
