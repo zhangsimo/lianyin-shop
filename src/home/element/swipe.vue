@@ -2,9 +2,9 @@
   <div class="box">
     <mt-swipe :show-indicators="false">
       <mt-swipe-item v-for="(item, index) in banner" :key="index">
-        <a :href="item.link_url"
-          ><img :src="baseURL + item.image_url" class="img"
-        /></a>
+        <a :href="item.link_url">
+          <img :src="baseURL + item.image_url" class="img">
+        </a>
       </mt-swipe-item>
     </mt-swipe>
   </div>
@@ -36,7 +36,7 @@ export default {
     height: 3.2rem /* 240/75 */;
     box-shadow: 0 0.533333rem /* 40/75 */ 0.266667rem /* 20/75 */ -0.266667rem /* 20/75 */
       #dadbfd;
-
+    border-radius: 0.266667rem; /* 20/75 */
     // box-shadow: 0 0.462963rem /* 25/54 */ blur spread #d9dbfd inset;
   }
 }

@@ -48,7 +48,7 @@ export default {
     if (this.$store.state.city === '') {
       this.maker()
     } else {
-      this.let = this.$store.state.city.let
+      this.let = this.$store.state.city.lat
       this.lng = this.$store.state.city.lng
       this.gitcity()
     }

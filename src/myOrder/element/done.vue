@@ -170,7 +170,7 @@ export default {
       text-align: center;
       // eslint-disable
       float: right;
-      line-height: 0.7rem;
+      line-height: 0.8rem;
       font-size: 0.373333rem; /* 28/75 */
       margin-top: 0.533333rem; /* 40/75 */
       margin-bottom: 0.266667rem; /* 20/75 */

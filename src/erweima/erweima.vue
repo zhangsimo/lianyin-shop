@@ -18,6 +18,6 @@ export default {
 
 <style lang='less' scoped>
 .payment {
-  padding-top: 1.333333rem /* 100/75 */;
+  padding-top: 1.2rem /* 90/75 */;
 }
 </style>

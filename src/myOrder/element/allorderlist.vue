@@ -156,12 +156,14 @@ export default {
       box-sizing: border-box;
 
       .top {
-        margin-top: 0.09667rem /* 0.2/75 */;
         font-size: 0.346667rem /* 26/75 */;
-        margin-bottom: 0.7rem; /* 45/54 */
+        margin-bottom: 0.6rem; /* 45/54 */
+        padding-top: 0.066667rem /* 5/75 */;
+        height: 0.5rem /* 30/75 */;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        box-sizing: border-box;
       }
       .bottom {
         font-size: 0.32rem /* 24/75 */;
@@ -185,7 +187,7 @@ export default {
       text-align: center;
       // eslint-disable
       float: right;
-      line-height: 0.7rem;
+      line-height: 0.8rem;
       font-size: 0.373333rem; /* 28/75 */
       margin-top: 0.533333rem; /* 40/75 */
       margin-bottom: 0.266667rem; /* 20/75 */

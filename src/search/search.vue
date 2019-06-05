@@ -45,6 +45,5 @@ export default {
 <style lang="less" scoped>
 .box {
   padding-top: 1.333333rem /* 100/75 */; /* 100/54 */
-  background-color: #f8f8f9;
 }
 </style>

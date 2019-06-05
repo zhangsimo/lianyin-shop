@@ -3,26 +3,24 @@
     <h3>附近商家</h3>
 
     <ul>
-      <!-- :style="{ height: contentH + 'px' }" ref="wrapper" -->
-      <li v-for="(item, index) in shop" :key="index" @click="goMerchant(item.id)">
+      <li v-for="(item, index) in shop" :key="index">
         <div class="merchantlist">
-          <div class="title">
-            <h2>{{ item.merchant_name }}</h2>
-            <p>{{ item.distance }}km</p>
-          </div>
-          <div>
-            <p class="explain">简介: {{ item.profile }}</p>
-          </div>
-          <div class="img">
-            <span v-for="(item2 ,index2) in item.header_image_url.split(',')" :key="index2">
-              <img :src="baseURL + item2" alt>
-            </span>
-            <!-- <img :src="baseURL + item.header_image_url.split(',')[0]" alt>
-            <img :src="baseURL + item.header_image_url.split(',')[1]" alt>
-            <img :src="baseURL + item.header_image_url.split(',')[2]" alt>-->
+          <div @click="goMerchant(item.id)">
+            <div class="title">
+              <h2>{{ item.merchant_name }}</h2>
+            </div>
+            <div class="jianjie">
+              <p class="explain">简介: {{ item.profile }}</p>
+              <span class="leave">{{ item.distance }}km</span>
+            </div>
+            <div class="img">
+              <span v-for="(item2 ,index2) in item.header_image_url.split(',')" :key="index2">
+                <img :src="baseURL + item2" alt>
+              </span>
+            </div>
           </div>
           <!-- 商家优惠进行显示判断 -->
-          <div class="discounts" v-if="item.goods !== null">
+          <div class="discounts" v-if="item.goods !== null" @click="goshop(item)">
             <p>商家优惠</p>
             <div>
               <div class="left">
@@ -68,16 +66,13 @@ export default {
       contentH: ''
     }
   },
-  // mounted () {
-  //   this.$nextTick(function () {
-  //     this.contentH =
-  //       document.documentElement.clientHeight -
-  //       this.$refs.wrapper.getBoundingClientRect().top
-  //   })
-  // },
   methods: {
     goMerchant (id) {
       this.$router.push({ path: '/merchant', query: { id: id } })
+    },
+    goshop (res) {
+      this.$store.commit('addOneList', res)
+      this.$router.push({ path: '/submit' })
     }
   }
 }
@@ -97,6 +92,7 @@ export default {
   h3 {
     font-size: 0.48rem /* 36/75 */;
     margin-bottom: 0.333333rem; /* 25/75 */
+    font-weight: 600;
   }
   .merchantlist {
     width: 100%;
@@ -104,6 +100,17 @@ export default {
     padding-right: 0.333333rem /* 18/54 */;
     box-sizing: border-box;
     background-color: #fff;
+    .jianjie {
+      position: relative;
+    }
+    .leave {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      font-size: 0.293333rem /* 22/75 */;
+      color: #666666;
+    }
     .title {
       height: 0.933333rem /* 70/75 */;
       width: 100%;
@@ -112,12 +119,7 @@ export default {
         float: left;
         margin-top: 0.633333rem;
         font-size: 0.453333rem /* 34/75 */;
-      }
-      p {
-        float: right;
-        margin-top: 0.933333rem;
-        font-size: 0.293333rem /* 22/75 */;
-        color: #666666;
+        font-weight: 600;
       }
     }
     .explain {
@@ -128,12 +130,14 @@ export default {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      width: 80%;
     }
     .img {
       margin-top: 0.366667rem /* 35/75 */;
       img {
         width: 31% /* 205/54 */;
         height: 2.72rem /* 204/75 */;
+        border-radius: 0.133333rem; /* 10/75 */
         // height: 3.396296rem /* 205/54 */;
       }
       span:nth-child(2) {

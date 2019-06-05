@@ -7,7 +7,7 @@
       </h3>
       <div class="lately">
         <p>定位/最近访问</p>
-        <div>
+        <div class="hoistory">
           <span v-for="(item,index) in historyCity" :key="index" @click="history(item)">{{item}}</span>
         </div>
       </div>
@@ -114,6 +114,15 @@ export default {
     font-size: 0.346667rem /* 26/75 */;
     color: #999999;
   }
+  .hoistory {
+    span:nth-child(1) {
+      color: #037fff;
+      background: url(../../assets/images/定位.png) no-repeat 0.353333rem
+        0.386667rem;
+      background-size: 0.48rem /* 26/75 */ 0.48rem /* 36/75 */;
+      padding-left: 0.266667rem; /* 20/75 */
+    }
+  }
   span {
     float: left;
     display: block;
@@ -141,9 +150,13 @@ export default {
   top: -0.666667rem; /* 50/75 */
 }
 .mint-indexlist-navlist {
+  margin-top: 0.8rem /* 60/75 */;
+  box-sizing: border-box;
+
   li {
     font-size: 0.266667rem; /* 20/75 */
     padding-right: 0.373333rem; /* 28/75 */
+    margin-bottom: 0.133333rem; /* 10/75 */
   }
 }
 .mint-cell {

@@ -4,7 +4,7 @@
       <div class="discounts">
         <div>
           <div class="left">
-            <img src="../../assets/shop1.png" alt>
+            <img src="../../assets/shop1.png" alt />
           </div>
           <div class="right">
             <h5 class="top">周末3小时xxxxxx</h5>
@@ -26,8 +26,10 @@
         <div class="verificationNumber">
           <p>123123131231</p>
         </div>
-        <div class="verificationImage">
-          <img src="../../assets/shop1.png" alt>
+        <div style="text-align: center">
+          <div class="verificationImage">
+            <div id="qrcode" ref="qrcode"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -35,10 +37,32 @@
 </template>
 
 <script>
-export default {}
+import QRCode from 'qrcodejs2'
+export default {
+  data () {
+    return {
+      numberlist: 123456
+    }
+  },
+  mounted () {
+    this.qrcodeScan()
+  },
+  methods: {
+    qrcodeScan () {
+      // 生成二维码
+      /* eslint-disable */
+      let qrcode = new QRCode('qrcode', {
+        width: '200', // 二维码宽度
+        height: '200', // 二维码高度
+        text: this.numberlist
+      })
+      console.log(qrcode._oDrawing._elImage)
+    }
+  }
+}
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .submitList {
   background-color: #fdfdfd;
   padding: 0 0.48rem /* 36/75 */;
@@ -95,19 +119,16 @@ export default {}
   border-radius: 0.2rem /* 15/75 */;
   text-align: center;
   font-size: 0.586667rem; /* 44/75 */
-  color: #b4b4b4;
+  color: #037fff;
   background-color: #f8f8f8;
 }
 .verificationImage {
   // margin-top: 1.333333rem /* 100/75 */;
   margin: 1.333333rem auto;
-  width: 4.773333rem /* 358/75 */;
+  display: inline-block;
   padding: 0.293333rem /* 22/75 */ 0.213333rem /* 16/75 */;
   box-sizing: border-box;
   border: 2px solid #e6e6e6;
   border-radius: 0.2rem /* 15/75 */;
-  img {
-    width: 100%;
-  }
 }
 </style>
