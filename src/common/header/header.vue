@@ -2,11 +2,18 @@
   <div class="header">
     <div class="left">
       <router-link to="/">
-        <img src="../../assets/images/reture.png">
+        <img src="../../assets/images/reture.png" />
       </router-link>
     </div>
     <div class="right">
-      <input type="text" placeholder="输入线路搜索" class="ipt" v-model="searchIput" autofocus>
+      <input
+        type="text"
+        placeholder="输入线路搜索"
+        class="ipt"
+        v-model="searchIput"
+        autofocus
+      />
+      <div class="bgcsea"></div>
       <span class="righttitle" @click="addHistory">搜索</span>
     </div>
   </div>
@@ -85,7 +92,7 @@ export default {
     overflow: hidden;
     height: 100%;
     padding-right: 0.48rem /* 36/75 */;
-
+    position: relative;
     .ipt {
       position: relative;
       outline: none;
@@ -96,12 +103,21 @@ export default {
       border: none;
       border-radius: 0.466667rem /* 35/75 */; /* 35/54 */
       font-size: 0.373333rem /* 28/75 */; /* 28/54 */
-      padding-left: 0.8rem /* 60/75 */; /* 60/54 */
+      padding-left: 0.6rem /* 60/75 */; /* 60/54 */
     }
     .righttitle {
       float: right;
       font-size: 0.426667rem /* 32/75 */; /* 32/54 */
     }
   }
+}
+.bgcsea {
+  position: absolute;
+  top: 0.326667rem /* 32/75 */ /* 30/75 */;
+  left: 0.2rem /* 15/75 */;
+  width: 0.4rem /* 30/75 */;
+  height: 0.4rem /* 26/75 */;
+  background: url(../../assets/images/sea.png);
+  background-size: 0.4rem /* 26/75 */ 0.4rem; /* 26/75 */
 }
 </style>

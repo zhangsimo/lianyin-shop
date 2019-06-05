@@ -4,7 +4,7 @@
       <div class="discounts">
         <div>
           <div class="left">
-            <img :src="baseURL + buy.title_image.split(',')[0]">
+            <img :src="baseURL + buy.title_image.split(',')[0]" />
           </div>
           <div class="right">
             <h5 class="top">{{ buy.description }}</h5>
@@ -25,7 +25,9 @@
         <div class="number">
           <span>数量</span>
           <span class="right">
-            <span class="iconfont less" @click="less" ref="lessbtn">&#xe60f;</span>
+            <span class="iconfont less" @click="less" ref="lessbtn"
+              >&#xe60f;</span
+            >
             <span class="num">{{ number }}</span>
             <span class="iconfont" @click="add">&#xe600;</span>
           </span>
@@ -44,7 +46,7 @@
         <span>淘红包</span>
         <span class="right dikou">
           {{ buy.packet * number }}抵扣 ￥{{
-          (buy.all_money - buy.money) * number
+            (buy.all_money - buy.money) * number
           }}
         </span>
       </div>
@@ -66,7 +68,9 @@
         />
       </div>-->
     </div>
-    <div class="surebtn" @click="submit">￥{{ (buy.money * number).toFixed(2) }} 提交订单</div>
+    <div class="surebtn" @click="submit">
+      ￥{{ (buy.money * number).toFixed(2) }} 提交订单
+    </div>
   </div>
 </template>
 
@@ -122,9 +126,10 @@ export default {
   padding: 0.453333rem /* 34/75 */ 0.32rem /* 24/75 */;
   box-sizing: border-box;
   // border: 2px solid #f5f6f6;
-  box-shadow: 0px 0px 10px 5px /* 20/75 */ #f5f6f6;
+  // box-shadow: 0px 0px 10px 5px /* 20/75 */ #f5f6f6;
+  border-bottom: 1px solid #000;
 
-  border-radius: 0.2rem /* 15/75 */;
+  border-radius: 0.2rem /* 15/75 */ 0.2rem 0 0;
   .left {
     float: left;
     img {
@@ -175,7 +180,6 @@ export default {
 }
 .moneyAll {
   padding: 0 0.48rem /* 36/75 */;
-  margin-top: 0.066667rem /* 5/75 */ /* 10/75 */;
 
   div {
     margin-bottom: 0.06666rem /* 10/75 */;
@@ -220,6 +224,7 @@ export default {
   text-align: center;
   font-size: 0.426667rem /* 32/75 */;
   color: #ffff;
-  margin-top: 5.533333rem /* 415/75 */;
+  position: fixed;
+  bottom: 0;
 }
 </style>

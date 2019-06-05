@@ -2,12 +2,19 @@
   <div class="header">
     <div class="left">
       <a href="javascript:history.back(-1)">
-        <img src="../../assets/images/reture.png" alt>
+        <img src="../../assets/images/reture.png" alt />
       </a>
     </div>
     <div class="right">
       <a href="javascript:history.back(-1)">
-        <input type="text" placeholder="输入线路搜索" class="ipt" v-model="searchIput" autofocus>
+        <input
+          type="text"
+          placeholder="输入线路搜索"
+          class="ipt"
+          v-model="searchIput"
+          autofocus
+        />
+        <div class="bgcsea"></div>
         <span class="righttitle">搜索</span>
       </a>
     </div>
@@ -55,6 +62,7 @@ export default {
       font-weight: 9.333333rem; /* 700/75 */
       img {
         width: 0.56rem /* 42/75 */;
+        margin-top: 0.266667rem; /* 20/75 */
       }
     }
   }
@@ -62,7 +70,7 @@ export default {
     overflow: hidden;
     height: 100%;
     padding-right: 0.48rem /* 36/75 */;
-
+    position: relative;
     .ipt {
       position: relative;
       outline: none;
@@ -73,7 +81,7 @@ export default {
       border: none;
       border-radius: 0.466667rem /* 35/75 */; /* 35/54 */
       font-size: 0.373333rem /* 28/75 */; /* 28/54 */
-      padding-left: 0.8rem /* 60/75 */; /* 60/54 */
+      padding-left: 0.6rem /* 60/75 */; /* 60/54 */
     }
     .righttitle {
       float: right;
@@ -81,5 +89,14 @@ export default {
       color: #000;
     }
   }
+}
+.bgcsea {
+  position: absolute;
+  top: 0.326667rem /* 32/75 */ /* 30/75 */;
+  left: 0.2rem /* 15/75 */;
+  width: 0.4rem /* 30/75 */;
+  height: 0.4rem /* 26/75 */;
+  background: url(../../assets/images/sea.png);
+  background-size: 0.4rem /* 26/75 */ 0.4rem; /* 26/75 */
 }
 </style>

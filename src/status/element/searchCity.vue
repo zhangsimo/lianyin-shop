@@ -3,17 +3,30 @@
     <mt-index-list>
       <h3 class="title">
         您正在看:
-        <span>{{this.$store.state.city.name}}</span>
+        <span>{{ this.$store.state.city.name }}</span>
       </h3>
       <div class="lately">
         <p>定位/最近访问</p>
         <div class="hoistory">
-          <span v-for="(item,index) in historyCity" :key="index" @click="history(item)">{{item}}</span>
+          <span
+            v-for="(item, index) in historyCity"
+            :key="index"
+            @click="history(item)"
+            >{{ item }}</span
+          >
         </div>
       </div>
 
-      <mt-index-section v-for="(item ,index) in block" :index="item.title" :key="index">
-        <mt-cell v-for="(item2 , index2) in item.city" :key="index2" :title="item2"></mt-cell>
+      <mt-index-section
+        v-for="(item, index) in block"
+        :index="item.title"
+        :key="index"
+      >
+        <mt-cell
+          v-for="(item2, index2) in item.city"
+          :key="index2"
+          :title="item2"
+        ></mt-cell>
       </mt-index-section>
     </mt-index-list>
   </div>
@@ -102,7 +115,7 @@ export default {
 }
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .title {
   font-size: 0.453333rem; /* 34/75 */
   line-height: 1.28rem; /* 96/75 */
@@ -114,26 +127,25 @@ export default {
     font-size: 0.346667rem /* 26/75 */;
     color: #999999;
   }
-  .hoistory {
-    span:nth-child(1) {
-      color: #037fff;
-      background: url(../../assets/images/定位.png) no-repeat 0.353333rem
-        0.386667rem;
-      background-size: 0.48rem /* 26/75 */ 0.48rem /* 36/75 */;
-      padding-left: 0.266667rem; /* 20/75 */
-    }
-  }
+
   span {
-    float: left;
-    display: block;
-    width: 2.6rem /* 195/75 */;
     height: 1.266667rem /* 95/75 */;
     box-shadow: 3px 3px 5px 10px #f6f6f7;
     line-height: 1.26666rem;
     text-align: center;
+    padding: 0.373333rem /* 28/75 */ 0.6rem /* 45/75 */;
     font-size: 0.426667rem; /* 32/75 */
     margin-bottom: 0.066667rem; /* 5/75 */
     border-radius: 0.066667rem; /* 5/75 */
+  }
+  .hoistory {
+    overflow: hidden;
+    span:nth-child(1) {
+      color: #037fff;
+      background: url(../../assets/images/定位.png) no-repeat 0 0.446667rem;
+      background-size: 0.48rem /* 26/75 */ 0.48rem /* 36/75 */;
+      padding-left: 0.566667rem; /* 20/75 */
+    }
   }
 }
 .CityFather {

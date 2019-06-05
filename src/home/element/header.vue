@@ -3,11 +3,20 @@
     <div class="left" @click="changeCity">
       {{ this.$store.state.city.name }}
       <i>
-        <img src="../../assets/images/50177ce7de7c03ca3354d35d9e4ef90.png" alt>
+        <img
+          src="../../assets/images/50177ce7de7c03ca3354d35d9e4ef90.png"
+          alt
+        />
       </i>
     </div>
     <div class="right">
-      <input type="text" placeholder="输入线路搜索" class="ipt" @click="tosearch">
+      <input
+        type="text"
+        placeholder="输入线路搜索"
+        class="ipt"
+        @click="tosearch"
+      />
+      <div class="bgcsea"></div>
     </div>
   </div>
 </template>
@@ -58,7 +67,7 @@ export default {
   .right {
     overflow: hidden;
     height: 100%;
-
+    position: relative;
     .ipt {
       position: relative;
       outline: none;
@@ -69,8 +78,17 @@ export default {
       border: none;
       border-radius: 0.648148rem; /* 35/54 */
       font-size: 0.373333rem /* 28/75 */;
-      padding-left: 0.32rem /* 24/75 */;
+      padding-left: 0.62rem /* 24/75 */;
     }
   }
+}
+.bgcsea {
+  position: absolute;
+  top: 0.426667rem /* 32/75 */ /* 30/75 */;
+  left: 0.2rem /* 15/75 */;
+  width: 0.4rem /* 30/75 */;
+  height: 0.4rem /* 26/75 */;
+  background: url(../../assets/images/sea.png);
+  background-size: 0.4rem /* 26/75 */ 0.4rem; /* 26/75 */
 }
 </style>

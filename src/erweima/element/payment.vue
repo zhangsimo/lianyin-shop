@@ -3,11 +3,17 @@
     <div class="submitList">
       <div class="discounts">
         <div>
+          <div class="shoptitle">
+            <h4>
+              好吃不上火
+              <span><img src="../../assets/images/fh.png" alt=""/></span>
+            </h4>
+          </div>
           <div class="left">
             <img src="../../assets/shop1.png" alt />
           </div>
           <div class="right">
-            <h5 class="top">周末3小时xxxxxx</h5>
+            <h5 class="top">周末3小时xx123131231312313123123xxxx</h5>
             <h5 class="bottom">
               <div class="discourt">
                 <span>￥69.00</span>
@@ -91,9 +97,12 @@ export default {
     box-sizing: border-box;
 
     .top {
-      margin-top: 0.09667rem /* 0.2/75 */;
+      margin-top: 0.05667rem /* 0.2/75 */;
       font-size: 0.346667rem /* 26/75 */;
-      margin-bottom: 0.7rem; /* 45/54 */
+      margin-bottom: 0.65rem; /* 45/54 */
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     .bottom {
       font-size: 0.32rem /* 24/75 */;
@@ -130,5 +139,20 @@ export default {
   box-sizing: border-box;
   border: 2px solid #e6e6e6;
   border-radius: 0.2rem /* 15/75 */;
+}
+.shoptitle {
+  h4 {
+    font-size: 0.453333rem; /* 34/75 */
+    line-height: 1.28rem; /* 96/75 */
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 0.48rem; /* 36/75 */
+    span {
+      float: right;
+      img {
+        width: 0.48rem /* 36/75 */;
+        height: 0.48rem /* 36/75 */;
+      }
+    }
+  }
 }
 </style>
