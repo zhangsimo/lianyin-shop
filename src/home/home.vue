@@ -92,10 +92,11 @@ export default {
           that.$axios
             .post('/myapi/index', {
               lat,
-              lng,
-              token: 1
+              lng
             })
             .then(res => {
+              console.log(res)
+
               that.categoryList = res.data.data.categoryList
               that.BannerList = res.data.data.bannerList
               that.shopList = res.data.data.shopList
@@ -108,8 +109,7 @@ export default {
             this.$axios
               .post('/myapi/index', {
                 lat: 119.946973,
-                lng: 31.772752,
-                token: 1
+                lng: 31.772752
               })
               .then(res => {
                 that.categoryList = res.data.data.categoryList
@@ -135,8 +135,7 @@ export default {
         .post('/myapi/index', {
           lat: this.let,
           lng: this.lng,
-          page: this.page,
-          token: 1
+          page: this.page
         })
         .then(res => {
           let list = JSON.parse(JSON.stringify(this.shopList))
@@ -148,8 +147,7 @@ export default {
     async gitcity() {
       let res = await this.$axios.post('/myapi/index', {
         lat: this.let,
-        lng: this.lng,
-        token: 1
+        lng: this.lng
       })
       this.categoryList = res.data.data.categoryList
       this.BannerList = res.data.data.bannerList

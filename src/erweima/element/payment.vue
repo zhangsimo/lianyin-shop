@@ -106,6 +106,7 @@ export default {
     }
     .bottom {
       font-size: 0.32rem /* 24/75 */;
+
       .discourt {
         float: left;
       }

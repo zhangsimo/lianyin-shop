@@ -31,8 +31,7 @@ export default {
       lat: latX,
       lng: lngY,
       categoryId: id,
-      page: this.page,
-      token: 1
+      page: this.page
     })
     console.log(res)
     this.classifyTitle = res.data.data.categoryInfo.name

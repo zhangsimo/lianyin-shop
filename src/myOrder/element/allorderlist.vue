@@ -62,12 +62,12 @@ export default {
       if (this.list.length % 10 !== 0) {
         return
       }
+
       this.loading = true
       setTimeout(() => {
         this.page++
         this.$axios
           .post('/myapi/order_list', {
-            token: 1,
             status: -2,
             page: this.page
           })
@@ -88,8 +88,7 @@ export default {
     },
     async cancel (item) {
       let res = await this.$axios.post('/myapi/cancel_order', {
-        orderNumber: item.goods.order_number,
-        token: 1
+        orderNumber: item.goods.order_number
       })
       if (res.data.code === 0) {
         this.loadMore()
@@ -117,13 +116,15 @@ export default {
 }
 .title {
   overflow: hidden;
-  border-bottom: 2px sloid #ccc;
+  // border-bottom: 1px sloid #000;
   line-height: 1.226667rem; /* 92/75 */
   background-color: #fff;
 }
 .allli {
   padding-left: 0.346667rem; /* 26/75 */
   padding-bottom: 0.266667rem /* 20/75 */;
+  border-radius: 0.2rem /* 15/75 */;
+  margin-bottom: 0.32rem /* 24/75 */;
   .titleLeft {
     font-size: 0.48rem /* 36/75 */;
     float: left;
@@ -135,14 +136,14 @@ export default {
     padding-right: 0.346667rem; /* 26/75 */
   }
   .discounts {
+    border-top: 1px solid #e6e6e6;
     overflow: hidden;
     background-color: #ffffff;
     padding: 0.453333rem /* 34/75 */ 0.32rem /* 24/75 */ 0;
     box-sizing: border-box;
     // border: 2px solid #f5f6f6;
-    box-shadow: 0px 0px 10px 5px /* 20/75 */ #f5f6f6;
+    // box-shadow: 0px 0px 10px 5px /* 20/75 */ #f5f6f6;
 
-    border-radius: 0.2rem /* 15/75 */;
     .left {
       float: left;
       img {
@@ -183,6 +184,7 @@ export default {
       height: 0.8rem /* 60/75 */;
       box-sizing: border-box;
       border: 1px solid #037fff;
+      color: #037fff;
       border-radius: 0.4rem; /* 15/75 */
       text-align: center;
       // eslint-disable

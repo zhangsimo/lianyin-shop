@@ -17,7 +17,7 @@
           {{ shoplist.address_info }}
         </p>
         <a
-          :href="'https://uri.amap.com/marker?position='+ shoplist.lng+','+shoplist.lng+'&name='+shoplist.merchant_name+'&src=lanyinshop&callnative=0' "
+          :href="'https://uri.amap.com/marker?position='+ shoplist.lng+','+shoplist.lat+'&name='+shoplist.merchant_name+'&src=lanyinshop&callnative=0' "
         >
           <img src="../../assets/images/定位.png" class="icon" alt>
         </a>

@@ -1,8 +1,8 @@
 <template>
-  <div class="orderListBox">
+  <div>
     <mt-navbar v-model="selected">
       <mt-tab-item id="1">
-        <router-link to="/allorderlist" @click="changecolor">全部</router-link>
+        <router-link to="/allorderlist">全部</router-link>
       </mt-tab-item>
       <mt-tab-item id="2">
         <router-link to="/staybuy">代付款</router-link>
@@ -15,34 +15,20 @@
       </mt-tab-item>
     </mt-navbar>
 
-    <div>
+    <div class="orderListBox">
       <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-// import allOrderList from './allorderlist.vue'
-// import stayUse from './stayuse.vue'
-// import stayBuy from './staybuy.vue'
-// import done from './done.vue'
 export default {
-  components: {
-    // allOrderList,
-    // stayUse,
-    // stayBuy,
-    // done
-  },
   data () {
     return {
       selected: '1'
     }
   },
-  methods: {
-    changecolor () {
-      console.log(123)
-    }
-  }
+  methods: {}
 }
 </script>
 
@@ -51,10 +37,10 @@ export default {
   padding: 0 0.48rem /* 36/75 */;
   box-sizing: border-box;
   background-color: #fafafa;
-  a {
-    text-decoration: none;
-    color: #222222;
-  }
+}
+a {
+  text-decoration: none;
+  color: #222222;
 }
 </style>
 <style lang="less">

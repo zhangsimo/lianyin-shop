@@ -25,8 +25,7 @@ export default {
     async getShop () {
       let id = location.href.split('=')[1]
       let res = await this.$axios.post('/myapi/shop_detail', {
-        id: id,
-        token: 1
+        id: id
       })
 
       this.shopList = res.data.data.shopDetail

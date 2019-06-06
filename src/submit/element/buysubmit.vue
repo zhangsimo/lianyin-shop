@@ -4,7 +4,7 @@
       <div class="discounts">
         <div>
           <div class="left">
-            <img :src="baseURL + buy.title_image.split(',')[0]" />
+            <img :src="baseURL + buy.title_image.split(',')[0]">
           </div>
           <div class="right">
             <h5 class="top">{{ buy.description }}</h5>
@@ -25,9 +25,7 @@
         <div class="number">
           <span>数量</span>
           <span class="right">
-            <span class="iconfont less" @click="less" ref="lessbtn"
-              >&#xe60f;</span
-            >
+            <span class="iconfont less" @click="less" ref="lessbtn">&#xe60f;</span>
             <span class="num">{{ number }}</span>
             <span class="iconfont" @click="add">&#xe600;</span>
           </span>
@@ -46,7 +44,7 @@
         <span>淘红包</span>
         <span class="right dikou">
           {{ buy.packet * number }}抵扣 ￥{{
-            (buy.all_money - buy.money) * number
+          (buy.all_money - buy.money) * number
           }}
         </span>
       </div>
@@ -68,9 +66,7 @@
         />
       </div>-->
     </div>
-    <div class="surebtn" @click="submit">
-      ￥{{ (buy.money * number).toFixed(2) }} 提交订单
-    </div>
+    <div class="surebtn" @click="submit">￥{{ (buy.money * number).toFixed(2) }} 提交订单</div>
   </div>
 </template>
 
@@ -104,7 +100,6 @@ export default {
     },
     async submit() {
       let res = await this.$axios.post('/myapi/create_order', {
-        token: 1,
         goodsId: this.buy.id,
         skuId: this.buy.uid,
         number: this.number

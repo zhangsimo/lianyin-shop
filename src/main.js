@@ -12,8 +12,24 @@ import 'mint-ui/lib/style.css'
 import MintUI from 'mint-ui'
 import store from './tool/index.js'
 import axios from 'axios'
+import { MessageBox } from 'mint-ui'
 // axios.defaults.baseURL = '/myapi'
 Vue.prototype.$axios = axios
+Vue.prototype.$messagebox = MessageBox
+
+axios.interceptors.request.use(
+  function(config) {
+    // 添加token
+
+    config.headers.token = sessionStorage.getItem('lianyin_token')
+
+    return config
+  },
+  function(error) {
+    // Do something with request error
+    return Promise.reject(error)
+  }
+)
 
 Vue.use(MintUI)
 flexible()

@@ -38,13 +38,9 @@
 <script>
 export default {
   created () {
-    this.$axios
-      .post('/myapi/user_info', {
-        token: 1
-      })
-      .then(res => {
-        console.log(res)
-      })
+    this.$axios.post('/myapi/user_info').then(res => {
+      console.log(res)
+    })
   }
 }
 </script>

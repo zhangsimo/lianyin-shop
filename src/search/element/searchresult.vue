@@ -38,7 +38,6 @@ export default {
         .post('/myapi/search_shop_list', {
           lat,
           lng,
-          token: 1,
           keyword: n,
           page: this.page
         })
