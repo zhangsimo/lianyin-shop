@@ -2,20 +2,20 @@
   <div class="footer">
     <ul>
       <li>
-        <router-link to="/">
-          <img src="../../assets/images/home-w.png" alt>
+        <router-link to="/home">
+          <img src="../../assets/images/home-w.png" alt />
           <p>首页</p>
         </router-link>
       </li>
       <li>
         <router-link to="/order">
-          <img src="../../assets/images/dd-w.png" alt>
+          <img src="../../assets/images/dd-w.png" alt />
           <p>订单</p>
         </router-link>
       </li>
       <li>
         <router-link to="/user" class="color">
-          <img src="../../assets/images/me-blue.png" alt>
+          <img src="../../assets/images/me-blue.png" alt />
           <p>我的</p>
         </router-link>
       </li>

@@ -6,7 +6,9 @@
     <div class="loginnav">
       <ul ref="loginAll" @click="changelogin">
         <li>
-          <router-link class="bordercolor" to="/phonelogin">验证码登录</router-link>
+          <router-link class="bordercolor" to="/phonelogin"
+            >验证码登录</router-link
+          >
         </li>
         <li>
           <router-link to="/passwordlogin">密码登录</router-link>
@@ -37,6 +39,7 @@ export default {
 
 <style lang="less" scoped>
 .logintitle {
+  background-color: #fff;
   h3 {
     width: 100%;
     line-height: 1.28rem; /* 96/75 */
@@ -64,6 +67,7 @@ export default {
       .bordercolor {
         border-bottom: 0.053333rem solid #037fff;
         color: #037fff;
+        font-weight: 600;
       }
     }
   }

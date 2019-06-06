@@ -5,7 +5,7 @@
       class="classifyHeader"
       :fixed="isFixed"
     >
-      <router-link to="/" slot="left">
+      <router-link to="/home" slot="left">
         <i class="iconfont classifyBack">&#xe62e;</i>
       </router-link>
     </mt-header>

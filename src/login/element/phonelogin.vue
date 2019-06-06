@@ -94,11 +94,12 @@ export default {
       border: none;
       margin-left: 0.466667rem /* 35/75 */;
       font-size: 0.373333rem /* 28/75 */;
-      color: #cccccc;
+      color: #222;
       outline: none;
     }
   }
   .inputtwo {
+    margin-top: 0.133333rem /* 10/75 */;
     position: relative;
     button {
       background-color: transparent;

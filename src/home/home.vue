@@ -95,8 +95,6 @@ export default {
               lng
             })
             .then(res => {
-              console.log(res)
-
               that.categoryList = res.data.data.categoryList
               that.BannerList = res.data.data.bannerList
               that.shopList = res.data.data.shopList

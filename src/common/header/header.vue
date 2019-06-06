@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="left">
-      <router-link to="/">
+      <router-link to="/home">
         <img src="../../assets/images/reture.png" />
       </router-link>
     </div>

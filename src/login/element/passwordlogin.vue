@@ -52,7 +52,6 @@ export default {
         mobile: this.mobile,
         password: this.password
       })
-      console.log(res)
       if (res.data.code === '0') {
         sessionStorage.setItem('lianyin_token', res.data.data.token)
         this.$router.push('/home')
@@ -78,11 +77,12 @@ export default {
       border: none;
       margin-left: 0.466667rem /* 35/75 */;
       font-size: 0.373333rem /* 28/75 */;
-      color: #cccccc;
+      color: #222;
       outline: none;
     }
   }
   .inputtwo {
+    padding-top: 0.133333rem /* 20/75 */;
     .input {
       margin-left: 0.8rem; /* 60/75 */
     }

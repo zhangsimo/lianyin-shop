@@ -1,9 +1,9 @@
 <template>
   <div class="header">
     <div class="left">
-      <a href="javas cript:history.back(-1)">
+      <router-link to="/home">
         <img src="../../assets/images/reture.png" alt />
-      </a>
+      </router-link>
     </div>
     <div class="right">
       <input

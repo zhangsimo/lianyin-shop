@@ -1,8 +1,15 @@
 <template>
   <div class="classifyFather">
     <mayi-header :title="classifyTitle"></mayi-header>
-    <mayi-image></mayi-image>
-    <mayi-list :shoplist="shoplist"></mayi-list>
+    <mt-loadmore
+      v-infinite-scroll="loadMore"
+      infinite-scroll-disabled="loading"
+      infinite-scroll-distance="0"
+      infinite-scroll-immediate-check="fasle"
+    >
+      <mayi-image></mayi-image>
+      <mayi-list :shoplist="shoplist"></mayi-list>
+    </mt-loadmore>
   </div>
 </template>
 
@@ -15,7 +22,10 @@ export default {
     return {
       classifyTitle: '美食',
       page: 1,
-      shoplist: ''
+      shoplist: '',
+      id: '',
+      latX: '',
+      lngY: ''
     }
   },
   components: {
@@ -24,18 +34,38 @@ export default {
     mayiList: list
   },
   async created () {
-    let id = location.href.split('=')[1]
-    let latX = this.$store.state.city.let
-    let lngY = this.$store.state.city.lng
+    this.id = location.href.split('=')[1]
+    this.latX = this.$store.state.city.let
+    this.lngY = this.$store.state.city.lng
     let res = await this.$axios.post('/myapi/shop_list', {
-      lat: latX,
-      lng: lngY,
-      categoryId: id,
+      lat: this.latX,
+      lng: this.lngY,
+      categoryId: this.id,
       page: this.page
     })
-    console.log(res)
     this.classifyTitle = res.data.data.categoryInfo.name
     this.shoplist = res.data.data.shopList
+  },
+  methods: {
+    loadMore () {
+      // 加载更多数据
+      if (this.shopList.length % 10 !== 0) {
+        return
+      }
+      this.loading = true
+      this.page++
+      this.$axios
+        .post('/myapi/index', {
+          lat: this.let,
+          lng: this.lng,
+          page: this.page
+        })
+        .then(res => {
+          let list = JSON.parse(JSON.stringify(this.shopList))
+          this.shopList = list.concat(res.data.data.shopList)
+        })
+      this.loading = false
+    }
   }
 }
 </script>

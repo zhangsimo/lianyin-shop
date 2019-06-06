@@ -1,17 +1,17 @@
 <template>
   <div>
     <mt-header title="商家详情" class="merchantHeader" :fixed="isFixed">
-      <router-link to="/" slot="left">
+      <router-link to="/home" slot="left">
         <i class="iconfont merchantBack">&#xe62e;</i>
       </router-link>
       <div slot="right" class="right">
-        <router-link to="/" slot="left">
+        <router-link to="/home" slot="left">
           <i class="iconfont merchantBack">&#xe629;</i>
         </router-link>
-        <router-link to="/" slot="left">
+        <router-link to="/home" slot="left">
           <i class="iconfont merchantBack">&#xe6ae;</i>
         </router-link>
-        <router-link to="/" slot="left">
+        <router-link to="/home" slot="left">
           <i class="iconfont merchantBack">&#xe626;</i>
         </router-link>
       </div>
