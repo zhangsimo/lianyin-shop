@@ -24,7 +24,6 @@ export default {
   methods: {
     buyNew () {
       this.oneList = this.$store.state.one
-      console.log(this.oneList)
     }
   }
 }

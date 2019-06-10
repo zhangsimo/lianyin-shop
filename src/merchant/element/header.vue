@@ -8,12 +8,9 @@
         <router-link to="/home" slot="left">
           <i class="iconfont merchantBack">&#xe629;</i>
         </router-link>
-        <router-link to="/home" slot="left">
+        <a @click="collect">
           <i class="iconfont merchantBack">&#xe6ae;</i>
-        </router-link>
-        <router-link to="/home" slot="left">
-          <i class="iconfont merchantBack">&#xe626;</i>
-        </router-link>
+        </a>
       </div>
     </mt-header>
   </div>
@@ -24,6 +21,21 @@ export default {
   data () {
     return {
       isFixed: true
+    }
+  },
+  methods: {
+    collect () {
+      let id = location.href.split('=')[1]
+      this.$messagebox.confirm('确定要收藏此商家?').then(() => {
+        this.$axios
+          .post('/myapi/collect_shop', {
+            shopId: id,
+            type: 1
+          })
+          .then(res => {
+            this.$messagebox.alert('收藏成功')
+          })
+      })
     }
   }
 }

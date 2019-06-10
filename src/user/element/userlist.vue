@@ -3,7 +3,7 @@
     <div class="userheader">
       <div>
         <div class="left">
-          <img src="../../assets/images/1.png" alt>
+          <img src="../../assets/images/1.png" alt />
         </div>
         <div class="right">
           <h5 class="top">123</h5>
@@ -19,16 +19,28 @@
       <h5>服务</h5>
       <ul>
         <li>
-          淘红包
-          <span>123</span>
+          <img src="../../assets/images/scs.png" alt class="img" />
+          <i>淘红包值</i>
+          <span class="right" @click="goredpacket">
+            2150
+            <img src="../../assets/images/fh.png" alt />
+          </span>
         </li>
         <li>
-          个人资料
-          <span>123</span>
+          <img src="../../assets/images/scs.png" alt class="img" />
+          <i>个人资料</i>
+          <span class="right" @click="gouserpersonal">
+            <img src="../../assets/images/fh.png" alt />
+          </span>
         </li>
         <li>
-          收藏
-          <span>123</span>
+          <img src="../../assets/images/scs.png" alt class="img" />
+
+          <i>收藏</i>
+          <span class="right" @click="gocollect">
+            已收藏21个
+            <img src="../../assets/images/fh.png" alt />
+          </span>
         </li>
       </ul>
     </div>
@@ -41,11 +53,22 @@ export default {
     this.$axios.post('/myapi/user_info').then(res => {
       console.log(res)
     })
+  },
+  methods: {
+    gouserpersonal () {
+      this.$router.push('/personal')
+    },
+    gocollect () {
+      this.$router.push('/collect')
+    },
+    goredpacket () {
+      this.$router.push('/redpacket')
+    }
   }
 }
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .userlistbgc {
   height: 100%;
   background: #f7f7f8;
@@ -105,8 +128,32 @@ export default {
   li {
     line-height: 2.133333rem; /* 160/75 */
     font-size: 0.373333rem; /* 28/75 */
-    span {
+    position: relative;
+    // padding-left: 0.96rem /* 72/75 */;
+    // box-sizing: border-box;
+    .img {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0.64rem /* 48/75 */;
+      height: 0.64rem /* 48/75 */;
+      // margin-right: 0.32rem /* 24/75 */;
+    }
+    i {
+      margin-left: 0.96rem; /* 72/75 */
+    }
+    .right {
       float: right;
+      padding-right: 0.333333rem /* 10/75 */;
+      color: #999999;
+      img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -0.133333rem /* 10/75 */;
+        width: 0.38rem /* 18/75 */;
+        height: 0.38rem /* 18/75 */;
+      }
     }
   }
 }

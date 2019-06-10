@@ -28,5 +28,6 @@ export default {
 .userBox {
   padding-top: 1.333333rem; /* 100/75 */
   background-color: #fafbfb;
+  padding-bottom: 1.333333rem /* 100/75 */;
 }
 </style>

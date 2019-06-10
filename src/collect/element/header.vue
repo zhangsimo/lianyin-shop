@@ -1,9 +1,9 @@
 <template>
   <div>
     <mt-header title="收藏" class="classifyHeader" :fixed="isFixed">
-      <router-link to="/" slot="left">
+      <a href="javascript:history.back(-1)" slot="left">
         <i class="iconfont classifyBack">&#xe62e;</i>
-      </router-link>
+      </a>
     </mt-header>
   </div>
 </template>

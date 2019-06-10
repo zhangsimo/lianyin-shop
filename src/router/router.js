@@ -77,7 +77,20 @@ const router = new Router({
     },
     { path: '/register1', component: () => import('@/login/register1.vue') },
     { path: '/register2', component: () => import('@/login/register2.vue') },
-    { path: '/check', component: () => import('@/check/check.vue') }
+    { path: '/check', component: () => import('@/check/check.vue') },
+    { path: '/personal', component: () => import('@/personal/personal.vue') },
+    {
+      path: '/changename',
+      component: () => import('@/personal/element/changename.vue')
+    },
+    {
+      path: '/birthday',
+      component: () => import('@/personal/element/birthday.vue')
+    },
+    {
+      path: '/redpacket',
+      component: () => import('../personal/element/redpacket.vue')
+    }
   ]
 })
 
