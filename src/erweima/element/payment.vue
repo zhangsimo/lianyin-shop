@@ -6,11 +6,13 @@
           <div class="shoptitle">
             <h4>
               好吃不上火
-              <span><img src="../../assets/images/fh.png" alt=""/></span>
+              <span>
+                <img src="../../assets/images/fh.png" alt>
+              </span>
             </h4>
           </div>
           <div class="left">
-            <img src="../../assets/shop1.png" alt />
+            <img src="../../assets/shop1.png" alt>
           </div>
           <div class="right">
             <h5 class="top">周末3小时xx123131231312313123123xxxx</h5>
@@ -47,10 +49,12 @@ import QRCode from 'qrcodejs2'
 export default {
   data () {
     return {
-      numberlist: 123456
+      numberlist: 123456,
+      token: ''
     }
   },
   mounted () {
+    this.token = sessionStorage.getItem('lianyin_token')
     this.qrcodeScan()
   },
   methods: {
@@ -60,7 +64,9 @@ export default {
       let qrcode = new QRCode('qrcode', {
         width: '200', // 二维码宽度
         height: '200', // 二维码高度
-        text: this.numberlist
+        text: `http://ant-www.9vdata.com/#/check?token=${
+          this.tkne
+        }&couponCode=${this.numberlist}`
       })
       console.log(qrcode._oDrawing._elImage)
     }

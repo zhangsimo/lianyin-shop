@@ -14,9 +14,11 @@
               <span class="leave">{{ item.distance }}km</span>
             </div>
             <div class="img">
-              <span v-for="(item2 ,index2) in item.header_image_url.split(',')" :key="index2">
-                <img :src="baseURL + item2" alt>
-              </span>
+              <!-- <span v-for="(item2 ,index2) in item.header_image_url.split(',')" :key="index2"> -->
+              <img :src="baseURL + item.header_image_url.split(',')[0]" alt>
+              <img :src="baseURL + item.header_image_url.split(',')[1]" alt>
+
+              <!-- </span> -->
             </div>
           </div>
           <!-- 商家优惠进行显示判断 -->
@@ -135,13 +137,13 @@ export default {
     .img {
       margin-top: 0.366667rem /* 35/75 */;
       img {
-        width: 31% /* 205/54 */;
+        width: 48% /* 205/54 */;
         height: 2.72rem /* 204/75 */;
         border-radius: 0.133333rem; /* 10/75 */
         // height: 3.396296rem /* 205/54 */;
       }
-      span:nth-child(2) {
-        margin: 0 0.133333rem /* 10/75 */; /* 15/75 */
+      img:nth-child(1) {
+        margin-right: 2%;
       }
     }
     .discounts {

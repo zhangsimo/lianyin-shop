@@ -76,7 +76,8 @@ const router = new Router({
       component: () => import('@/searchrult/searchresult.vue')
     },
     { path: '/register1', component: () => import('@/login/register1.vue') },
-    { path: '/register2', component: () => import('@/login/register2.vue') }
+    { path: '/register2', component: () => import('@/login/register2.vue') },
+    { path: '/check', component: () => import('@/check/check.vue') }
   ]
 })
 
