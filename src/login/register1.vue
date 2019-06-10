@@ -114,7 +114,7 @@ export default {
       border: none;
       margin-left: 0.466667rem /* 35/75 */;
       font-size: 0.373333rem /* 28/75 */;
-      color: #cccccc;
+      color: #000;
       outline: none;
     }
   }

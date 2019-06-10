@@ -1,29 +1,19 @@
 <template>
   <div>
     <div class="logintitle">
-      <h3>手机注册</h3>
+      <h3>重置密码</h3>
     </div>
-    <h2 class="logintitleshop">欢迎使用蚂蚁商城</h2>
+    <h2 class="logintitleshop">新设置密码</h2>
     <div class="phonelogin">
       <div class="inputone">
         密码
-        <input type="text" placeholder="请输入登录密码" v-model="password1" />
+        <input type="text" placeholder="请输入登录密码" v-model="password1">
       </div>
       <div class="inputtwo">
         密码
-        <input
-          type="text"
-          placeholder="请重新输入登录密码"
-          v-model="password2"
-        />
+        <input type="text" placeholder="请重新输入登录密码" v-model="password2">
       </div>
       <div class="loginBtn" @click="register">确认</div>
-      <div class="goback">
-        <router-link to="/login" @click="register">
-          已有账号, 去登陆
-          <i>▶</i>
-        </router-link>
-      </div>
     </div>
   </div>
 </template>
@@ -55,19 +45,19 @@ export default {
         code: obj.code,
         password: this.password1
       })
-      console.log(res)
+      // console.log(res)
 
-      if (res.data.code === '0') {
-        sessionStorage.setItem('lianyin_token', res.data.token)
-        this.$messagebox.alert('注册成功').then(() => {
-          this.$router.push('/login')
-        })
-      }
-      if (res.data.code === '-1') {
-        this.$messagebox.alert(res.data.msg).then(() => {
-          this.$router.push('/register1')
-        })
-      }
+      // if (res.data.code === '0') {
+      //   sessionStorage.setItem('lianyin_token', res.data.token)
+      //   this.$messagebox.alert('注册成功').then(() => {
+      //     this.$router.push('/login')
+      //   })
+      // }
+      // if (res.data.code === '-1') {
+      //   this.$messagebox.alert(res.data.msg).then(() => {
+      //     this.$router.push('/register1')
+      //   })
+      // }
     }
   }
 }
@@ -135,17 +125,6 @@ export default {
     line-height: 1.28rem;
     font-size: 0.426667rem; /* 32/75 */
     border-radius: 0.2rem; /* 15/75 */
-  }
-}
-.goback {
-  line-height: 1.6rem /* 120/75 */;
-  a {
-    text-decoration: none;
-    color: #000;
-    font-size: 0.346667rem; /* 26/75 */
-    i {
-      font-size: 0.213333rem; /* 16/75 */
-    }
   }
 }
 </style>

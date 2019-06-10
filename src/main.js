@@ -35,25 +35,6 @@ Vue.use(MintUI)
 flexible()
 Vue.config.productionTip = false
 
-//导航拦截守卫
-// axios.defaults.baseURL = 'http://ant-api.9vdata.com/'
-// axios.defaults.headers.common['Authorization'] = 1
-// axios.interceptors.request.use(
-//   function(config) {
-//     // token
-//     // console.log(localStorage.getItem('token'))
-
-//     config.headers.Authorization = 1
-//     // localStorage.getItem('token')
-
-//     return config
-//   },
-//   function(error) {
-//     // Do something with request error
-//     return Promise.reject(error)
-//   }
-// )
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -77,6 +77,11 @@ const router = new Router({
     },
     { path: '/register1', component: () => import('@/login/register1.vue') },
     { path: '/register2', component: () => import('@/login/register2.vue') },
+    {
+      path: '/restpassword',
+      component: () => import('../login/restpassword.vue')
+    },
+    { path: '/rest', component: () => import('../login/rest.vue') },
     { path: '/check', component: () => import('@/check/check.vue') },
     { path: '/personal', component: () => import('@/personal/personal.vue') },
     {

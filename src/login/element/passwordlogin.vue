@@ -2,11 +2,16 @@
   <div class="phonelogin">
     <div class="inputone">
       手机号
-      <input type="text" placeholder="请输入手机号" v-model="mobile">
+      <input type="text" placeholder="请输入手机号" v-model="mobile" />
     </div>
     <div class="inputtwo">
       密码
-      <input type="text" placeholder="请输入登录密码" class="input" v-model="password">
+      <input
+        type="text"
+        placeholder="请输入登录密码"
+        class="input"
+        v-model="password"
+      />
     </div>
     <div class="loginBtn" @click="sure">登录</div>
     <div class="signIn">
@@ -14,7 +19,7 @@
         注册账号
         <i>▶</i>
       </span>
-      <span>忘记密码?</span>
+      <span @click="gorestpassword">忘记密码?</span>
     </div>
   </div>
 </template>
@@ -54,6 +59,9 @@ export default {
       if (res.data.code === '-1') {
         this.$messagebox.alert(res.data.msg)
       }
+    },
+    gorestpassword () {
+      this.$router.push('/restpassword')
     }
   }
 }
@@ -72,7 +80,7 @@ export default {
       border: none;
       margin-left: 0.466667rem /* 35/75 */;
       font-size: 0.373333rem /* 28/75 */;
-      color: #222;
+      color: #000;
       outline: none;
       height: 80%;
     }

@@ -1,16 +1,21 @@
 <template>
-  <div class="phonelogin">
-    <div class="inputone">
-      手机号
-      <input type="text" placeholder="请输入手机号" v-model="mobile" />
+  <div>
+    <div class="logintitle">
+      <h3>重置密码</h3>
     </div>
-    <div class="inputtwo">
-      验证码
-      <input type="text" placeholder="请输入验证码" v-model="verify" />
-      <button @click="cerifyMobile" ref="down">获取验证码</button>
+    <h2 class="logintitleshop">安全验证</h2>
+    <div class="phonelogin">
+      <div class="inputone">
+        手机号
+        <input type="text" placeholder="请输入手机号" v-model="mobile">
+      </div>
+      <div class="inputtwo">
+        验证码
+        <input type="text" placeholder="请输入验证码" v-model="verify">
+        <button @click="cerifyMobile" ref="down">获取验证码</button>
+      </div>
+      <div class="loginBtn" @click="register">下一步</div>
     </div>
-    <p>若手机号未注册,登录将自动创建账号。</p>
-    <div class="loginBtn" @click="register">登录</div>
   </div>
 </template>
 
@@ -50,7 +55,7 @@ export default {
         })
       }
     },
-    async register() {
+    register() {
       if (this.mobile.trim() === '') {
         this.$messagebox.alert('请输入手机号码')
         return
@@ -60,28 +65,37 @@ export default {
         return
       }
       if (this.verify.trim() === '') {
-        return this.$messagebox.alert('请输入验证码')
+        this.$messagebox.alert('请输入验证码')
+        return
       }
-      let res = await this.$axios.post('/myapi/login_by_code', {
-        mobile: this.mobile,
-        code: this.verify
-      })
-      if (res.data.code === '0') {
-        sessionStorage.setItem('lianyin_token', res.data.data.token)
-        this.$router.push('/home')
-      }
-      if (res.data.code === '-1') {
-        this.$messagebox.alert(res.data.msg)
-      }
+      // this.$store.commit('gitLoginCode', {
+      //   code: this.verify,
+      //   mobile: this.mobile
+      // })
+      this.$router.push('/rest')
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
+.logintitleshop {
+  padding: 0 0.48rem /* 36/75 */;
+  line-height: 2rem; /* 150/75 */
+  font-size: 0.533333rem /* 40/75 */;
+  font-weight: 600;
+}
+.logintitle {
+  h3 {
+    width: 100%;
+    line-height: 1.28rem; /* 96/75 */
+    text-align: center;
+    font-size: 0.453333rem; /* 34/75 */
+  }
+}
 .phonelogin {
   padding: 0 0.48rem /* 36/75 */;
-  margin-top: 0.533333rem; /* 40/75 */
+
   .inputone,
   .inputtwo {
     border-bottom: 1px solid #cccccc;
@@ -92,13 +106,11 @@ export default {
       border: none;
       margin-left: 0.466667rem /* 35/75 */;
       font-size: 0.373333rem /* 28/75 */;
-      color: #000;
+      color: #cccccc;
       outline: none;
-      height: 80%;
     }
   }
   .inputtwo {
-    margin-top: 0.133333rem /* 10/75 */;
     position: relative;
     button {
       background-color: transparent;
@@ -119,6 +131,7 @@ export default {
     color: #999999;
   }
   .loginBtn {
+    margin-top: 0.733333rem /* 55/75 */;
     width: 100%;
     height: 1.28rem /* 96/75 */;
     background-color: #037fff;
