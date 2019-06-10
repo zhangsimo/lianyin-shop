@@ -3,8 +3,11 @@
     <!-- 滚动图片 -->
     <div class="imageList">
       <ul ref="imgul" :style="{ width: contentH + 'px' }">
-        <li v-for="(item, index) in shoplist.header_image_url.split(',')" :key="index">
-          <img :src="Url.baseURL + item" alt>
+        <li
+          v-for="(item, index) in shoplist.header_image_url.split(',')"
+          :key="index"
+        >
+          <img :src="Url.baseURL + item" alt />
         </li>
       </ul>
     </div>
@@ -17,16 +20,24 @@
           {{ shoplist.address_info }}
         </p>
         <a
-          :href="'https://uri.amap.com/marker?position='+ shoplist.lng+','+shoplist.lat+'&name='+shoplist.merchant_name+'&src=lanyinshop&callnative=0' "
+          :href="
+            'https://uri.amap.com/marker?position=' +
+              shoplist.lat +
+              ',' +
+              shoplist.lng +
+              '&name=' +
+              shoplist.merchant_name +
+              '&src=lanyinshop&callnative=0'
+          "
         >
-          <img src="../../assets/images/定位.png" class="icon" alt>
+          <img src="../../assets/images/定位.png" class="icon" alt />
         </a>
       </div>
       <div>
         电话:
         <span>{{ shoplist.mobile }}</span>
         <a :href="'tel:' + shoplist.mobile">
-          <img src="../../assets/images/iphone.png" class="icon" alt>
+          <img src="../../assets/images/iphone.png" class="icon" alt />
         </a>
       </div>
     </div>
@@ -36,7 +47,10 @@
       <div class="discounts">
         <div>
           <div class="left">
-            <img :src="Url.baseURL + shoplist.goods.title_image.split(',')[0]" alt>
+            <img
+              :src="Url.baseURL + shoplist.goods.title_image.split(',')[0]"
+              alt
+            />
           </div>
           <div class="right">
             <h5 class="top">{{ shoplist.goods.title }}</h5>

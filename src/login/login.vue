@@ -6,31 +6,46 @@
     <div class="loginnav">
       <ul ref="loginAll" @click="changelogin">
         <li>
-          <router-link class="bordercolor" to="/phonelogin"
-            >验证码登录</router-link
-          >
+          <a class="bordercolor">验证码登录</a>
         </li>
         <li>
-          <router-link to="/passwordlogin">密码登录</router-link>
+          <a>密码登录</a>
         </li>
       </ul>
     </div>
     <div>
-      <router-view></router-view>
+      <!-- <router-view></router-view> -->
+      <!-- eslint-disable  -->
+      <register1 v-if="isShow"></register1>
+      <register2 v-if="!isShow"></register2>
     </div>
   </div>
 </template>
 
 <script>
+import register1 from './element/phonelogin.vue'
+import register2 from './element/passwordlogin.vue'
 export default {
+  data () {
+    return {
+      isShow: true
+    }
+  },
+  components: {
+    register1,
+    register2
+  },
+  /* eslint-disable */
+
   methods: {
-    changelogin (e) {
+    changelogin(e) {
       if (e.target.localName === 'a') {
         let list = this.$refs.loginAll.children
         for (let i = 0; i < list.length; i++) {
           list[i].firstElementChild.classList.remove('bordercolor')
         }
         e.target.className = 'bordercolor'
+        this.isShow = !this.isShow
       }
     }
   }

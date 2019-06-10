@@ -9,18 +9,18 @@ const router = new Router({
     { path: '/', redirect: '/login' },
     {
       path: '/login',
-      component: () => import('@/login/login.vue'),
-      redirect: '/phonelogin',
-      children: [
-        {
-          path: '/phonelogin',
-          component: () => import('@/login/element/phonelogin.vue')
-        },
-        {
-          path: '/passwordlogin',
-          component: () => import('@/login/element/passwordlogin.vue')
-        }
-      ]
+      component: () => import('@/login/login.vue')
+      // redirect: '/phonelogin',
+      // children: [
+      //   {
+      //     path: '/phonelogin',
+      //     component: () => import('@/login/element/phonelogin.vue')
+      //   },
+      //   {
+      //     path: '/passwordlogin',
+      //     component: () => import('@/login/element/passwordlogin.vue')
+      //   }
+      // ]
     },
     {
       path: '/home',

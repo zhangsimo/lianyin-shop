@@ -45,6 +45,7 @@ export default {
     }
   },
   created() {
+    this.gitcity()
     if (this.$store.state.city === '') {
       this.maker()
     } else {

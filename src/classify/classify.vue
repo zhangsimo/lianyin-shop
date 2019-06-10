@@ -49,20 +49,24 @@ export default {
   methods: {
     loadMore () {
       // 加载更多数据
-      if (this.shopList.length % 10 !== 0) {
+      if (this.shoplist.length % 10 !== 0) {
         return
       }
       this.loading = true
       this.page++
+      this.id = location.href.split('=')[1]
+      this.latX = this.$store.state.city.let
+      this.lngY = this.$store.state.city.lng
       this.$axios
-        .post('/myapi/index', {
-          lat: this.let,
-          lng: this.lng,
+        .post('/myapi/shop_list', {
+          lat: this.latX,
+          lng: this.lngY,
+          categoryId: this.id,
           page: this.page
         })
         .then(res => {
-          let list = JSON.parse(JSON.stringify(this.shopList))
-          this.shopList = list.concat(res.data.data.shopList)
+          let list = JSON.parse(JSON.stringify(this.shoplist))
+          this.shoplist = list.concat(res.data.data.shopList)
         })
       this.loading = false
     }

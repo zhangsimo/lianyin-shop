@@ -2,14 +2,12 @@
   <div class="phonelogin">
     <div class="inputone">
       手机号
-      <input type="text" placeholder="请输入手机号" v-model="mobile" />
+      <input type="text" placeholder="请输入手机号" v-model="mobile">
     </div>
     <div class="inputtwo">
       验证码
-      <input type="text" placeholder="请输入验证码" v-model="verify" />
-      <button @click="cerifyMobile" ref="down">
-        获取验证码
-      </button>
+      <input type="text" placeholder="请输入验证码" v-model="verify">
+      <button @click="cerifyMobile" ref="down">获取验证码</button>
     </div>
     <p>若手机号未注册,登录将自动创建账号。</p>
     <div class="loginBtn" @click="register">登录</div>
@@ -96,6 +94,7 @@ export default {
       font-size: 0.373333rem /* 28/75 */;
       color: #222;
       outline: none;
+      height: 80%;
     }
   }
   .inputtwo {
