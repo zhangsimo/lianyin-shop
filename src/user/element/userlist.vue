@@ -3,7 +3,7 @@
     <div class="userheader">
       <div>
         <div class="left">
-          <img src="../../assets/images/1.png" alt />
+          <img src="../../assets/images/1.png" alt>
         </div>
         <div class="right">
           <h5 class="top">123</h5>
@@ -19,27 +19,29 @@
       <h5>服务</h5>
       <ul>
         <li>
-          <img src="../../assets/images/scs.png" alt class="img" />
+          <img src="../../assets/images/ren_box.png" alt class="img">
           <i>淘红包值</i>
           <span class="right" @click="goredpacket">
             2150
-            <img src="../../assets/images/fh.png" alt />
+            <img src="../../assets/images/fh.png" alt>
           </span>
         </li>
         <li>
-          <img src="../../assets/images/scs.png" alt class="img" />
+          <img src="../../assets/images/me-x.png" alt class="img">
           <i>个人资料</i>
-          <span class="right" @click="gouserpersonal">
-            <img src="../../assets/images/fh.png" alt />
+          <span class="right rightwith" @click="gouserpersonal">
+            <!-- eslint-disable-next-line -->
+            &nbsp&nbsp&nbsp
+            <img src="../../assets/images/fh.png" alt>
           </span>
         </li>
         <li>
-          <img src="../../assets/images/scs.png" alt class="img" />
+          <img src="../../assets/images/scs.png" alt class="img">
 
           <i>收藏</i>
           <span class="right" @click="gocollect">
             已收藏21个
-            <img src="../../assets/images/fh.png" alt />
+            <img src="../../assets/images/fh.png" alt>
           </span>
         </li>
       </ul>
@@ -142,10 +144,14 @@ export default {
     i {
       margin-left: 0.96rem; /* 72/75 */
     }
+    .rightwith {
+      width: 0.4rem /* 30/75 */;
+    }
     .right {
       float: right;
       padding-right: 0.333333rem /* 10/75 */;
       color: #999999;
+      height: 100%;
       img {
         position: absolute;
         top: 50%;

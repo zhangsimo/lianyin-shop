@@ -1,23 +1,25 @@
 <template>
   <div class="merchant">
-    <h3>附近商家</h3>
     <ul>
-      <li>
+      <li v-for="(item ,index) in list" :key="index">
         <div class="merchantlist">
           <div class="title">
-            <h2>香满楼XXX</h2>
+            <h2>{{item.shop.merchant_name}}</h2>
             <p>4.0km</p>
           </div>
           <div>
-            <p class="explain">简介: 1231这里有个1223123123123123123131231231231231321</p>
+            <p class="explain">简介: {{item.shop.profile}}</p>
           </div>
           <div class="img">
-            <img src="../../assets/shop1.png" alt>
-            <img src="../../assets/shop1.png" alt>
-            <img src="../../assets/shop1.png" alt>
+            <!-- <span v-for="(item2 ,index2) in item.shop.header_image_url.split(',')" :key="index2"> -->
+            <img :src="baseURL + item.shop.header_image_url.split(',')[0]" alt>
+            <img :src="baseURL + item.shop.header_image_url.split(',')[1]" alt>
+            <!-- <img src="../../assets/shop1.png" alt>
+            <img src="../../assets/shop1.png" alt>-->
+            <!-- </span> -->
           </div>
           <!-- 判断优惠信息 -->
-          <div class="merchantList">
+          <div class="merchantList" v-if="item.shop.goods !== null">
             <h2>商家优惠</h2>
             <div class="discounts">
               <div>
@@ -25,16 +27,16 @@
                   <img src="../../assets/shop1.png" alt>
                 </div>
                 <div class="right">
-                  <h5 class="top">周末3小时xxxxxx</h5>
+                  <h5 class="top">{{item.shop.goods.title}}</h5>
                   <h5 class="bottom">
                     <div class="discourt">
-                      <span style="color:red">￥30.00</span> +
-                      <span style="color:red">20积分</span>
+                      <span style="color:red">￥{{item.shop.goods.money}}</span> +
+                      <span style="color:red">{{item.shop.goods.packet}}积分</span>
                     </div>
                     <div class="sales">
                       <span>
                         门市价:
-                        <i>￥69</i>
+                        <i>￥{{item.shop.goods.all_money}}</i>
                       </span>
                     </div>
                   </h5>
@@ -47,33 +49,7 @@
             <span class="left">
               <i class="iconfont">&#xe60e;</i>已收藏
             </span>
-            <span class="right">
-              进店逛逛
-              <i class="iconfont">&#xe614;</i>
-            </span>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="merchantlist">
-          <div class="title">
-            <h2>香满楼XXX</h2>
-            <p>4.0km</p>
-          </div>
-          <div>
-            <p class="explain">简介: 1231这里有个1223123123123123123131231231231231321</p>
-          </div>
-          <div class="img">
-            <img src="../../assets/shop1.png" alt>
-            <img src="../../assets/shop1.png" alt>
-            <img src="../../assets/shop1.png" alt>
-          </div>
-          <!-- 收藏 -->
-          <div class="listCollect">
-            <span class="left">
-              <i class="iconfont">&#xe60e;</i>已收藏
-            </span>
-            <span class="right">
+            <span class="right" @click="goshop(item.shop)">
               进店逛逛
               <i class="iconfont">&#xe614;</i>
             </span>
@@ -90,7 +66,21 @@
 </template>
 
 <script>
-export default {}
+import variable from '../../global-variable.js'
+export default {
+  props: ['list'],
+  data () {
+    return {
+      baseURL: variable.baseURL
+    }
+  },
+  methods: {
+    goshop (shop) {
+      this.$router.push({ path: '/merchant', query: { id: shop.id } })
+      // console.log(shop)
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>
@@ -140,13 +130,15 @@ export default {}
       text-overflow: ellipsis;
     }
     .img {
-      margin-top: 0.366667rem /* 35/75 */;
+      margin-top: 0.266667rem;
       img {
-        width: 31% /* 205/54 */;
+        width: 48% /* 205/54 */;
+        height: 2.226667rem /* 167/75 */;
+        border-radius: 0.133333rem; /* 10/75 */
         // height: 3.396296rem /* 205/54 */;
       }
-      img:nth-child(2) {
-        margin: 0 0.133333rem /* 10/75 */; /* 15/75 */
+      img:nth-child(1) {
+        margin-right: 2%;
       }
     }
   }
@@ -184,10 +176,10 @@ export default {}
   // border: 2px solid #f5f6f6;
   // box-shadow: 0px 0px 10px 5px /* 20/75 */ #f5f6f6;
 
-  border-radius: 0.2rem /* 15/75 */;
   .left {
     float: left;
     img {
+      border-radius: 0.2rem /* 15/75 */;
       width: 1.4rem /* 105/75 */;
       height: 1.4rem;
     }

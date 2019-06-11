@@ -6,7 +6,12 @@
     </div>
     <div>
       <ul class="listUl">
-        <li v-for="(item, index) in list" :key="index" class="listOne">{{ item }}</li>
+        <li
+          v-for="(item, index) in list"
+          :key="index"
+          class="listOne"
+          @click="gosearchlist"
+        >{{ item }}</li>
       </ul>
     </div>
   </div>
@@ -37,6 +42,12 @@ export default {
     trashAll () {
       localStorage.removeItem('search_list')
       this.getHistory()
+    },
+    gosearchlist (e) {
+      this.$router.push({
+        path: '/searchresult',
+        query: { id: e.target.innerText }
+      })
     }
   }
 }

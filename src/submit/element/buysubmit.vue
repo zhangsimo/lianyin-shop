@@ -10,15 +10,18 @@
             <h5 class="top">{{ buy.description }}</h5>
             <h5 class="bottom">
               <div class="discourt">
-                <span style="color:red">￥{{ buy.money }}</span> +
-                <span style="color:red">{{ buy.packet }}积分</span>
+                <span style="color:#000">￥{{ buy.money }}</span> +
+                <span style="color:#000">
+                  {{ buy.packet }}
+                  <i>淘红包</i>
+                </span>
               </div>
-              <div class="sales">
+              <!-- <div class="sales">
                 <span>
                   门市价:
                   <i>￥{{ buy.all_money }}</i>
                 </span>
-              </div>
+              </div>-->
             </h5>
           </div>
         </div>
@@ -147,6 +150,9 @@ export default {
       color: #999999;
       .discourt {
         float: left;
+        i {
+          font-size: 0.24rem /* 18/75 */;
+        }
       }
       .sales {
         float: right;
@@ -175,7 +181,7 @@ export default {
 }
 .moneyAll {
   padding: 0 0.48rem /* 36/75 */;
-
+  background-color: #fff;
   div {
     margin-bottom: 0.06666rem /* 10/75 */;
     height: 1.333333rem /* 100/75 */;

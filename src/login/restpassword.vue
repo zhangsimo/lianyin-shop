@@ -98,7 +98,7 @@ export default {
 
   .inputone,
   .inputtwo {
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #e6e6e6;
     line-height: 1.24rem /* 93/75 */;
     font-size: 0.373333rem /* 28/75 */;
     height: 1.24rem;

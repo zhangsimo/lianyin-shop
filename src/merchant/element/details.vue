@@ -3,11 +3,8 @@
     <!-- 滚动图片 -->
     <div class="imageList">
       <ul ref="imgul" :style="{ width: contentH + 'px' }">
-        <li
-          v-for="(item, index) in shoplist.header_image_url.split(',')"
-          :key="index"
-        >
-          <img :src="Url.baseURL + item" alt />
+        <li v-for="(item, index) in shoplist.header_image_url.split(',')" :key="index">
+          <img :src="Url.baseURL + item" alt>
         </li>
       </ul>
     </div>
@@ -30,14 +27,14 @@
               '&src=lanyinshop&callnative=0'
           "
         >
-          <img src="../../assets/images/定位.png" class="icon" alt />
+          <img src="../../assets/images/11151712.png" class="icon" alt>
         </a>
       </div>
       <div>
         电话:
         <span>{{ shoplist.mobile }}</span>
         <a :href="'tel:' + shoplist.mobile">
-          <img src="../../assets/images/iphone.png" class="icon" alt />
+          <img src="../../assets/images/iphone.png" class="icon" alt>
         </a>
       </div>
     </div>
@@ -47,10 +44,7 @@
       <div class="discounts">
         <div>
           <div class="left">
-            <img
-              :src="Url.baseURL + shoplist.goods.title_image.split(',')[0]"
-              alt
-            />
+            <img :src="Url.baseURL + shoplist.goods.title_image.split(',')[0]" alt>
           </div>
           <div class="right">
             <h5 class="top">{{ shoplist.goods.title }}</h5>
@@ -119,6 +113,7 @@ export default {
     li {
       // display: inline-block;
       float: left;
+      margin-right: 0.066667rem /* 5/75 */;
       img {
         width: 4rem /* 300/75 */;
         height: 2.4rem /* 180/75 */;
@@ -134,7 +129,7 @@ export default {
     // padding-bottom: 0.48rem /* 36/75 */;
     box-sizing: border-box;
     // border: 2px solid #e6e6e6;
-
+    background-color: #fff;
     h3 {
       text-align: center;
       font-size: 0.586667rem /* 44/75 */;
@@ -155,7 +150,7 @@ export default {
     }
     div:nth-child(3) {
       padding-bottom: 0.44rem /* 33/75 */;
-      border-bottom: 2px solid #e6e6e6;
+      border-bottom: 1px solid #e6e6e6;
       box-sizing: border-box;
     }
   }
@@ -212,7 +207,7 @@ export default {
     text-align: center;
     line-height: 1.2666rem;
     margin-top: 0.48rem /* 36/75 */;
-    border-top: 2px solid #e6e6e6;
+    border-top: 1px solid #e6e6e6;
     font-size: 0.346667rem /* 26/75 */;
     color: #0266ff;
   }
@@ -254,14 +249,17 @@ export default {
 }
 .addressbox {
   overflow: hidden;
+  a {
+    img {
+      width: 0.56rem /* 42/75 */;
+    }
+  }
 }
 </style>
 <style lang="less">
 .merchantitleConent {
-  a {
-    img {
-      width: 100%;
-    }
+  img {
+    width: 100%;
   }
 }
 </style>

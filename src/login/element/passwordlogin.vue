@@ -2,16 +2,11 @@
   <div class="phonelogin">
     <div class="inputone">
       手机号
-      <input type="text" placeholder="请输入手机号" v-model="mobile" />
+      <input type="text" placeholder="请输入手机号" v-model="mobile">
     </div>
     <div class="inputtwo">
       密码
-      <input
-        type="text"
-        placeholder="请输入登录密码"
-        class="input"
-        v-model="password"
-      />
+      <input type="text" placeholder="请输入登录密码" class="input" v-model="password">
     </div>
     <div class="loginBtn" @click="sure">登录</div>
     <div class="signIn">
@@ -73,7 +68,7 @@ export default {
   margin-top: 0.533333rem; /* 40/75 */
   .inputone,
   .inputtwo {
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #e6e6e6;
     line-height: 1.24rem /* 93/75 */;
     font-size: 0.373333rem /* 28/75 */;
     input {

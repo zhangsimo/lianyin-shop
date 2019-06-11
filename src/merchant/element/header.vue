@@ -67,10 +67,10 @@ export default {
   }
 }
 </style>
-<style lang="less">
+ <style lang="less">
 .merchantHeader {
   .mint-header-title {
-    height: 0.5rem;
+    height: 0.6rem;
   }
 }
 </style>

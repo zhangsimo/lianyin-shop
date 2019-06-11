@@ -13,10 +13,11 @@ import MintUI from 'mint-ui'
 import store from './tool/index.js'
 import axios from 'axios'
 import { MessageBox } from 'mint-ui'
+import Calendar from 'vue2-datepick'
 // axios.defaults.baseURL = '/myapi'
 Vue.prototype.$axios = axios
 Vue.prototype.$messagebox = MessageBox
-
+Vue.use(Calendar)
 axios.interceptors.request.use(
   function(config) {
     // 添加token

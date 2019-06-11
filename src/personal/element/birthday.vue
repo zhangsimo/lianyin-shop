@@ -4,7 +4,13 @@
     <div class="list">
       <p class="username">你的生日</p>
       <div class="inptbox">
-        <input type="text" placeholder="选择生日">
+        <input
+          type="text"
+          placeholder="选择生日"
+          @click="setDate"
+          onfocus="this.blur()"
+          v-model="birthday"
+        />
       </div>
     </div>
   </div>
@@ -15,16 +21,30 @@ import personalHeader from '../../common/header.vue'
 export default {
   data () {
     return {
-      title: '个人信息'
+      title: '个人信息',
+      birthday: '1990-01-01'
     }
   },
   components: {
     personalHeader
+  },
+  methods: {
+    setDate () {
+      this.$picker.show({
+        type: 'datePicker',
+        date: '2000-06-15',
+        endTime: '2018-01-01',
+        startTime: '1940-01-01',
+        onOk: data => {
+          this.birthday = data
+        }
+      })
+    }
   }
 }
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .userBox {
   padding-top: 1.333333rem; /* 100/75 */
   background-color: #fafbfb;

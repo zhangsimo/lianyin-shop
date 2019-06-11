@@ -7,15 +7,11 @@
     <div class="phonelogin">
       <div class="inputone">
         密码
-        <input type="text" placeholder="请输入登录密码" v-model="password1" />
+        <input type="text" placeholder="请输入登录密码" v-model="password1">
       </div>
       <div class="inputtwo">
         密码
-        <input
-          type="text"
-          placeholder="请重新输入登录密码"
-          v-model="password2"
-        />
+        <input type="text" placeholder="请重新输入登录密码" v-model="password2">
       </div>
       <div class="loginBtn" @click="register">确认</div>
       <div class="goback">
@@ -93,7 +89,7 @@ export default {
 
   .inputone,
   .inputtwo {
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #e6e6e6;
     line-height: 1.24rem /* 93/75 */;
     font-size: 0.373333rem /* 28/75 */;
     height: 1.24rem;

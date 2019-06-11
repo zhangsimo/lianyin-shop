@@ -2,17 +2,11 @@
   <div class="header">
     <div class="left">
       <router-link to="/home">
-        <img src="../../assets/images/reture.png" />
+        <img src="../../assets/images/reture.png">
       </router-link>
     </div>
     <div class="right">
-      <input
-        type="text"
-        placeholder="输入线路搜索"
-        class="ipt"
-        v-model="searchIput"
-        autofocus
-      />
+      <input type="text" placeholder="输入线路搜索" class="ipt" v-model="searchIput" autofocus>
       <div class="bgcsea"></div>
       <span class="righttitle" @click="addHistory">搜索</span>
     </div>
@@ -68,7 +62,7 @@ export default {
   height: 0.96rem /* 72/75 */;
   width: 100%;
   line-height: 0.96rem /* 72/75 */;
-  padding-top: 0.32rem /* 24/75 */;
+  padding-top: 0.16rem /* 24/75 */;
   z-index: 999;
   background-color: #fff;
 
@@ -97,9 +91,10 @@ export default {
       position: relative;
       outline: none;
       // display: block;
-      width: 75% /* 552/54 */;
-      height: 100% /* 72/54 */;
+      width: 80% /* 552/54 */;
+      height: 0.96rem /* 72/75 */;
       background-color: #f5f5f5;
+      line-height: 0.96rem;
       border: none;
       border-radius: 0.466667rem /* 35/75 */; /* 35/54 */
       font-size: 0.373333rem /* 28/75 */; /* 28/54 */
@@ -113,7 +108,8 @@ export default {
 }
 .bgcsea {
   position: absolute;
-  top: 0.326667rem /* 32/75 */ /* 30/75 */;
+  top: 50% /* 32/75 */ /* 30/75 */;
+  transform: translateY(-50%);
   left: 0.2rem /* 15/75 */;
   width: 0.4rem /* 30/75 */;
   height: 0.4rem /* 26/75 */;

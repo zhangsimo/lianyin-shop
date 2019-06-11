@@ -2,18 +2,12 @@
   <div class="header">
     <div class="left">
       <a href="javascript:history.back(-1)">
-        <img src="../../assets/images/reture.png" alt />
+        <img src="../../assets/images/reture.png" alt>
       </a>
     </div>
     <div class="right">
       <a href="javascript:history.back(-1)">
-        <input
-          type="text"
-          placeholder="输入线路搜索"
-          class="ipt"
-          v-model="searchIput"
-          autofocus
-        />
+        <input type="text" placeholder="输入线路搜索" class="ipt" v-model="searchIput" autofocus>
         <div class="bgcsea"></div>
         <span class="righttitle">搜索</span>
       </a>
@@ -92,7 +86,9 @@ export default {
 }
 .bgcsea {
   position: absolute;
-  top: 0.326667rem /* 32/75 */ /* 30/75 */;
+  // top: 0.326667rem /* 32/75 */ /* 30/75 */;
+  top: 50%;
+  transform: translateY(-50%);
   left: 0.2rem /* 15/75 */;
   width: 0.4rem /* 30/75 */;
   height: 0.4rem /* 26/75 */;

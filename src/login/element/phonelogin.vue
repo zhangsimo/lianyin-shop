@@ -2,11 +2,11 @@
   <div class="phonelogin">
     <div class="inputone">
       手机号
-      <input type="text" placeholder="请输入手机号" v-model="mobile" />
+      <input type="text" placeholder="请输入手机号" v-model="mobile">
     </div>
     <div class="inputtwo">
       验证码
-      <input type="text" placeholder="请输入验证码" v-model="verify" />
+      <input type="text" placeholder="请输入验证码" v-model="verify">
       <button @click="cerifyMobile" ref="down">获取验证码</button>
     </div>
     <p>若手机号未注册,登录将自动创建账号。</p>
@@ -34,9 +34,9 @@ export default {
       } else {
         this.$refs.down.disabled = true
         this.$refs.down.style.color = '#ccc'
-        var time = 10
+        var time = 60
         let timeout = setInterval(() => {
-          this.$refs.down.innerText = time + '秒后再次发送'
+          this.$refs.down.innerText = time + 'S后再次发送'
           time--
           if (time == -1) {
             clearTimeout(timeout)
@@ -84,7 +84,7 @@ export default {
   margin-top: 0.533333rem; /* 40/75 */
   .inputone,
   .inputtwo {
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #e6e6e6;
     line-height: 1.24rem /* 93/75 */;
     font-size: 0.373333rem /* 28/75 */;
     height: 1.24rem;

@@ -7,14 +7,12 @@
     <div class="phonelogin">
       <div class="inputone">
         手机号
-        <input type="text" placeholder="请输入手机号" v-model="mobile" />
+        <input type="text" placeholder="请输入手机号" v-model="mobile">
       </div>
       <div class="inputtwo">
         验证码
-        <input type="text" placeholder="请输入验证码" v-model="verify" />
-        <button @click="cerifyMobile" ref="down">
-          获取验证码
-        </button>
+        <input type="text" placeholder="请输入验证码" v-model="verify">
+        <button @click="cerifyMobile" ref="down">获取验证码</button>
       </div>
       <div class="loginBtn" @click="register">下一步</div>
       <div class="goback">
@@ -106,7 +104,7 @@ export default {
 
   .inputone,
   .inputtwo {
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #e6e6e6;
     line-height: 1.24rem /* 93/75 */;
     font-size: 0.373333rem /* 28/75 */;
     height: 1.24rem;

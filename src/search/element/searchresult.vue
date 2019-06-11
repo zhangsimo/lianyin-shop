@@ -1,13 +1,17 @@
 <template>
   <mt-loadmore
-    :bottom-method="loadBottom"
-    bottomPullText
-    :bottomDistance="0"
-    :autoFill="false"
-    ref="loadmore"
+    v-infinite-scroll="loadMore"
+    infinite-scroll-disabled="loading"
+    infinite-scroll-distance="0"
+    infinite-scroll-immediate-check="fasle"
   >
     <div class="reslut">
-      <ul :style="{ height: contentH + 'px' }" ref="wrapper">
+      <ul
+        v-infinite-scroll="loadMore"
+        infinite-scroll-disabled="loading"
+        infinite-scroll-distance="0"
+        infinite-scroll-immediate-check="fasle"
+      >
         <li v-for="(item , index) in shopList" :key="index" @click="gitshop(item)">
           <span>{{item.merchant_name.slice(0,item.merchant_name.toLowerCase().indexOf(givesearch.toLowerCase()))}}</span>
           <span
@@ -27,11 +31,13 @@ export default {
   data () {
     return {
       page: 1,
-      shopList: ''
+      shopList: '',
+      keyword: ''
     }
   },
   watch: {
     givesearch (n, o) {
+      this.keyword = n
       let lat = this.$store.state.city.let
       let lng = this.$store.state.city.lng
       this.$axios
@@ -46,23 +52,34 @@ export default {
         })
     }
   },
-  mounted () {
-    this.$nextTick(function () {
-      this.contentH =
-        document.documentElement.clientHeight -
-        this.$refs.wrapper.getBoundingClientRect().top
-    })
-  },
+
   methods: {
     gitshop (item) {
       console.log(item)
       this.$router.push({ path: '/merchant', query: { id: item.id } })
     },
-    loadBottom () {
-      console.log(123)
+    loadMore () {
+      // 加载更多数据
 
-      this.allLoaded = true // 若数据已全部获取完毕
-      this.$refs.loadmore.onBottomLoaded()
+      if (this.shopList.length % 10 !== 0) {
+        return
+      }
+      this.page++
+      this.loading = true
+      let lat = this.$store.state.city.let
+      let lng = this.$store.state.city.lng
+      this.$axios
+        .post('/myapi/search_shop_list', {
+          lat,
+          lng,
+          keyword: this.keyword,
+          page: this.page
+        })
+        .then(res => {
+          let list = JSON.parse(JSON.stringify(this.shopList))
+          this.shopList = list.concat(res.data.data.shopList)
+        })
+      this.loading = false
     }
   }
 }

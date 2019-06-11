@@ -45,7 +45,7 @@ export default {
     }
   },
   created() {
-    this.gitcity()
+    // this.gitcity()
     if (this.$store.state.city === '') {
       this.maker()
     } else {
@@ -161,6 +161,7 @@ export default {
   padding-top: 1.466667rem /* 110/75 */; /* 90/54 */
   height: 100%;
   box-sizing: border-box;
+  background-color: #fff;
 }
 .prdListWrap {
   position: absolute;

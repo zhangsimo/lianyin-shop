@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="logintitle">
+    <!-- <div class="logintitle">
       <h3>登录</h3>
-    </div>
+    </div>-->
     <div class="loginnav">
       <ul ref="loginAll" @click="changelogin">
         <li>
@@ -72,6 +72,8 @@ export default {
       text-align: center;
       font-size: 0.373333rem /* 28/75 */;
       color: #666666;
+      background-color: #fff;
+      box-shadow: 0 0 0.066667rem /* 5/75 */ #e6e6e6;
       a {
         text-decoration: none;
         padding-bottom: 0.25rem /* 15/75 */;
@@ -80,7 +82,7 @@ export default {
         // border-bottom: 0.053333rem solid #ccc; /* 4/75 */
       }
       .bordercolor {
-        border-bottom: 0.053333rem solid #037fff;
+        border-bottom: 0.053333rem /* 4/75 */ solid #037fff;
         color: #037fff;
         font-weight: 600;
       }

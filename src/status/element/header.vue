@@ -2,16 +2,11 @@
   <div class="header">
     <div class="left">
       <router-link to="/home">
-        <img src="../../assets/images/reture.png" alt />
+        <img src="../../assets/images/reture.png" alt>
       </router-link>
     </div>
     <div class="right">
-      <input
-        type="text"
-        placeholder="城市/拼音"
-        class="ipt"
-        v-model="statusIput"
-      />
+      <input type="text" placeholder="城市/拼音" class="ipt" v-model="statusIput">
       <!-- @keyup.enter="addHistory" -->
       <div class="bgcsea"></div>
     </div>
@@ -48,7 +43,7 @@ export default {
   height: 0.96rem /* 72/75 */;
   width: 100%;
   line-height: 0.96rem /* 72/75 */;
-  padding-top: 0.32rem /* 24/75 */;
+  padding-top: 0.16rem /* 24/75 */;
   z-index: 999;
   background-color: #fff;
 
@@ -93,7 +88,9 @@ export default {
 }
 .bgcsea {
   position: absolute;
-  top: 0.306667rem /* 32/75 */ /* 30/75 */;
+  // top: 0.306667rem /* 32/75 */ /* 30/75 */;
+  top: 50%;
+  transform: translateY(-50%);
   left: 0.2rem /* 15/75 */;
   width: 0.4rem /* 30/75 */;
   height: 0.4rem /* 26/75 */;
