@@ -8,12 +8,45 @@
       <div class="lately">
         <p>定位/最近访问</p>
         <div class="hoistory">
-          <span v-for="(item, index) in historyCity" :key="index" @click="history(item)">{{ item }}</span>
+          <ul>
+            <li>
+              <span class="nowcity">{{ this.$store.state.city.name }}</span>
+            </li>
+            <li
+              v-for="(item, index) in historyCity"
+              :key="index"
+              @click="history(item)"
+            >
+              <span>{{ item }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="hotCity">
+        <p>热门城市</p>
+        <div class="hoistory">
+          <ul>
+            <li
+              v-for="(item, index) in this.$store.state.hotCity"
+              :key="index"
+              @click="history(item.name)"
+            >
+              <span>{{ item.name }}</span>
+            </li>
+          </ul>
         </div>
       </div>
 
-      <mt-index-section v-for="(item, index) in block" :index="item.title" :key="index">
-        <mt-cell v-for="(item2, index2) in item.city" :key="index2" :title="item2"></mt-cell>
+      <mt-index-section
+        v-for="(item, index) in block"
+        :index="item.title"
+        :key="index"
+      >
+        <mt-cell
+          v-for="(item2, index2) in item.city"
+          :key="index2"
+          :title="item2"
+        ></mt-cell>
       </mt-index-section>
     </mt-index-list>
   </div>
@@ -29,7 +62,8 @@ export default {
     return {
       cityList: [],
       block: [],
-      historyCity: ''
+      historyCity: '',
+      hotCity: ''
     }
   },
   created() {
@@ -48,30 +82,34 @@ export default {
       blocks = [],
       d = {}
     let res = await this.$axios.post('/myapi/city_lists')
-    this.cityList = res.data.data.list
-    this.$store.commit('getAllCity', res.data.data.list)
-    this.cityList.forEach(item => {
-      p = pyjs
-        .getFullChars(item.name)
-        .toLocaleLowerCase()
-        .slice(0, 1)
-      c = p.charCodeAt(0)
-      if (c > 96 && c < 123) {
-        if (!d[p]) {
-          d[p] = []
+    if (res.data.code === '0') {
+      this.$store.commit('gethotCity', res.data.data.hotCityList)
+      // this.hotCity = res.data.data.hotCityList
+      this.cityList = res.data.data.list
+      this.$store.commit('getAllCity', res.data.data.list)
+      this.cityList.forEach(item => {
+        p = pyjs
+          .getFullChars(item.name)
+          .toLocaleLowerCase()
+          .slice(0, 1)
+        c = p.charCodeAt(0)
+        if (c > 96 && c < 123) {
+          if (!d[p]) {
+            d[p] = []
+          }
+          d[p].push(item.name)
         }
-        d[p].push(item.name)
-      }
-    })
-    for (let [k, v] of Object.entries(d)) {
-      blocks.push({
-        title: k.toUpperCase(),
-        city: v
       })
+      for (let [k, v] of Object.entries(d)) {
+        blocks.push({
+          title: k.toUpperCase(),
+          city: v
+        })
+      }
+      blocks.sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
+      this.block = blocks
+      localStorage.setItem('mayi_allcity', JSON.stringify(blocks))
     }
-    blocks.sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
-    this.block = blocks
-    localStorage.setItem('mayi_allcity', JSON.stringify(blocks))
   },
   methods: {
     openCity(e) {
@@ -114,7 +152,12 @@ export default {
     font-size: 0.346667rem /* 26/75 */;
     color: #999999;
   }
-
+  ul {
+    li {
+      float: left;
+      width: 33%;
+    }
+  }
   span {
     height: 1.266667rem /* 95/75 */;
     box-shadow: 0px 0px 5px 10px #f6f6f7;
@@ -128,7 +171,7 @@ export default {
   .hoistory {
     overflow: hidden;
     background-color: #fff;
-    span:nth-child(1) {
+    .nowcity {
       color: #037fff;
       background: url(../../assets/images/定位.png) no-repeat 0 0.446667rem;
       background-size: 0.48rem /* 26/75 */ 0.48rem /* 36/75 */;
@@ -178,5 +221,35 @@ export default {
   box-sizing: border-box;
   // box-shadow: -1px 1px 0px 0px red;
   border-bottom: 2px solid #f8f8f9;
+}
+.hotCity {
+  overflow: hidden;
+  p {
+    line-height: 1.24rem; /* 93/75 */
+    font-size: 0.346667rem /* 26/75 */;
+    color: #999999;
+  }
+
+  span {
+    height: 1.266667rem /* 95/75 */;
+    box-shadow: 0px 0px 5px 10px #f6f6f7;
+    line-height: 1.26666rem;
+    text-align: center;
+    padding: 0.373333rem /* 28/75 */ 0.6rem /* 45/75 */;
+    font-size: 0.426667rem; /* 32/75 */
+    margin-bottom: 0.066667rem; /* 5/75 */
+    border-radius: 0.066667rem; /* 5/75 */
+    width: 33%;
+  }
+  .hoistory {
+    overflow: hidden;
+    background-color: #fff;
+    ul {
+      li {
+        float: left;
+        width: 33%;
+      }
+    }
+  }
 }
 </style>

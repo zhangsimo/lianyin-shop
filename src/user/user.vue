@@ -1,7 +1,9 @@
 <template>
   <div class="userBox">
     <user-header :title="title"></user-header>
-    <user-list></user-list>
+    <div>
+      <user-list></user-list>
+    </div>
     <user-footer></user-footer>
   </div>
 </template>
@@ -24,10 +26,13 @@ export default {
 }
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .userBox {
   padding-top: 1.333333rem; /* 100/75 */
   background-color: #fafbfb;
   padding-bottom: 1.333333rem /* 100/75 */;
+  div {
+    overflow: scroll;
+  }
 }
 </style>

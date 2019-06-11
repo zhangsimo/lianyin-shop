@@ -3,7 +3,7 @@
     <div class="userheader">
       <div>
         <div class="left">
-          <img src="../../assets/images/1.png" alt>
+          <img src="../../assets/images/1.png" alt />
         </div>
         <div class="right">
           <h5 class="top">123</h5>
@@ -19,29 +19,37 @@
       <h5>服务</h5>
       <ul>
         <li>
-          <img src="../../assets/images/ren_box.png" alt class="img">
+          <img src="../../assets/images/ren_box.png" alt class="img" />
           <i>淘红包值</i>
           <span class="right" @click="goredpacket">
             2150
-            <img src="../../assets/images/fh.png" alt>
+            <img src="../../assets/images/fh.png" alt />
           </span>
         </li>
         <li>
-          <img src="../../assets/images/me-x.png" alt class="img">
+          <img src="../../assets/images/me-x.png" alt class="img" />
           <i>个人资料</i>
           <span class="right rightwith" @click="gouserpersonal">
             <!-- eslint-disable-next-line -->
             &nbsp&nbsp&nbsp
-            <img src="../../assets/images/fh.png" alt>
+            <img src="../../assets/images/fh.png" alt />
           </span>
         </li>
         <li>
-          <img src="../../assets/images/scs.png" alt class="img">
-
+          <img src="../../assets/images/scs.png" alt class="img" />
           <i>收藏</i>
           <span class="right" @click="gocollect">
             已收藏21个
-            <img src="../../assets/images/fh.png" alt>
+            <img src="../../assets/images/fh.png" alt />
+          </span>
+        </li>
+        <li>
+          <img src="../../assets/images/scs.png" alt class="img" />
+          <i>修改密码</i>
+          <span class="right" @click="gocollect">
+            <!-- eslint-disable-next-line -->
+            &nbsp&nbsp&nbsp
+            <img src="../../assets/images/fh.png" alt />
           </span>
         </li>
       </ul>
@@ -115,7 +123,7 @@ export default {
   }
 }
 .list {
-  height: 7.333333rem /* 550/75 */;
+  // height: 7.333333rem /* 550/75 */;
   width: 100%;
   background-color: #fff;
   border-radius: 0.2rem /* 15/75 */;

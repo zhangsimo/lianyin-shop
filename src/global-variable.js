@@ -9,7 +9,7 @@ const hoistoryCity = function (cityName) {
     arr.splice(index, 1)
   }
   // 2. 不能超过3个
-  if (arr.length >= 3) {
+  if (arr.length >= 2) {
     arr.pop()
   }
   arr.unshift(cityName)
