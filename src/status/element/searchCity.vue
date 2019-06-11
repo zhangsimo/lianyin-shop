@@ -155,7 +155,7 @@ export default {
   ul {
     li {
       float: left;
-      width: 33%;
+      width: 30%;
     }
   }
   span {
@@ -164,7 +164,7 @@ export default {
     line-height: 1.26666rem;
     text-align: center;
     padding: 0.373333rem /* 28/75 */ 0.6rem /* 45/75 */;
-    font-size: 0.426667rem; /* 32/75 */
+    font-size: 0.373333rem /* 28/75 */;
     margin-bottom: 0.066667rem; /* 5/75 */
     border-radius: 0.066667rem; /* 5/75 */
   }
@@ -236,10 +236,9 @@ export default {
     line-height: 1.26666rem;
     text-align: center;
     padding: 0.373333rem /* 28/75 */ 0.6rem /* 45/75 */;
-    font-size: 0.426667rem; /* 32/75 */
+    font-size: 0.373333rem /* 28/75 */;
     margin-bottom: 0.066667rem; /* 5/75 */
     border-radius: 0.066667rem; /* 5/75 */
-    width: 33%;
   }
   .hoistory {
     overflow: hidden;

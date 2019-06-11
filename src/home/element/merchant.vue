@@ -15,18 +15,25 @@
             </div>
             <div class="img">
               <!-- <span v-for="(item2 ,index2) in item.header_image_url.split(',')" :key="index2"> -->
-              <img :src="baseURL + item.header_image_url.split(',')[0]" alt>
-              <img :src="baseURL + item.header_image_url.split(',')[1]" alt>
+              <img :src="baseURL + item.header_image_url.split(',')[0]" alt />
+              <img :src="baseURL + item.header_image_url.split(',')[1]" alt />
 
               <!-- </span> -->
             </div>
           </div>
           <!-- 商家优惠进行显示判断 -->
-          <div class="discounts" v-if="item.goods !== null" @click="goshop(item)">
+          <div
+            class="discounts"
+            v-if="item.goods !== null"
+            @click="goshop(item)"
+          >
             <p>商家优惠</p>
             <div>
               <div class="left">
-                <img :src="baseURL + item.goods.title_image.split(',')[0]" alt>
+                <img
+                  :src="baseURL + item.goods.title_image.split(',')[0]"
+                  alt
+                />
               </div>
               <div class="right">
                 <h5 class="top">{{ item.goods.description }}</h5>
@@ -102,7 +109,8 @@ export default {
     padding-right: 0.333333rem /* 18/54 */;
     box-sizing: border-box;
     background-color: #fff;
-
+    box-shadow: 0px 0px 0.266667rem#f7f5f9;
+    margin-bottom: 0.266667rem /* 20/75 */;
     .leave {
       position: absolute;
       right: 0;
