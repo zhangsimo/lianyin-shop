@@ -12,11 +12,7 @@
             <li>
               <span class="nowcity">{{ this.$store.state.city.name }}</span>
             </li>
-            <li
-              v-for="(item, index) in historyCity"
-              :key="index"
-              @click="history(item)"
-            >
+            <li v-for="(item, index) in historyCity" :key="index" @click="history(item)">
               <span>{{ item }}</span>
             </li>
           </ul>
@@ -37,16 +33,8 @@
         </div>
       </div>
 
-      <mt-index-section
-        v-for="(item, index) in block"
-        :index="item.title"
-        :key="index"
-      >
-        <mt-cell
-          v-for="(item2, index2) in item.city"
-          :key="index2"
-          :title="item2"
-        ></mt-cell>
+      <mt-index-section v-for="(item, index) in block" :index="item.title" :key="index">
+        <mt-cell v-for="(item2, index2) in item.city" :key="index2" :title="item2"></mt-cell>
       </mt-index-section>
     </mt-index-list>
   </div>
@@ -156,24 +144,23 @@ export default {
     li {
       float: left;
       width: 30%;
+      height: 1.266667rem /* 95/75 */;
+      box-shadow: 0px 0px 5px 10px #f6f6f7;
+      line-height: 1.26666rem;
+      text-align: center;
+      // padding: 0.373333rem /* 28/75 */ 0.6rem /* 45/75 */;
+      font-size: 0.373333rem /* 28/75 */;
+      // margin-bottom: 0.066667rem; /* 5/75 */
+      border-radius: 0.066667rem; /* 5/75 */
     }
   }
-  span {
-    height: 1.266667rem /* 95/75 */;
-    box-shadow: 0px 0px 5px 10px #f6f6f7;
-    line-height: 1.26666rem;
-    text-align: center;
-    padding: 0.373333rem /* 28/75 */ 0.6rem /* 45/75 */;
-    font-size: 0.373333rem /* 28/75 */;
-    margin-bottom: 0.066667rem; /* 5/75 */
-    border-radius: 0.066667rem; /* 5/75 */
-  }
+
   .hoistory {
     overflow: hidden;
     background-color: #fff;
     .nowcity {
       color: #037fff;
-      background: url(../../assets/images/定位.png) no-repeat 0 0.446667rem;
+      background: url(../../assets/images/定位.png) no-repeat 0 0;
       background-size: 0.48rem /* 26/75 */ 0.48rem /* 36/75 */;
       padding-left: 0.566667rem; /* 20/75 */
     }
@@ -229,24 +216,19 @@ export default {
     font-size: 0.346667rem /* 26/75 */;
     color: #999999;
   }
-
-  span {
-    height: 1.266667rem /* 95/75 */;
-    box-shadow: 0px 0px 5px 10px #f6f6f7;
-    line-height: 1.26666rem;
-    text-align: center;
-    padding: 0.373333rem /* 28/75 */ 0.6rem /* 45/75 */;
-    font-size: 0.373333rem /* 28/75 */;
-    margin-bottom: 0.066667rem; /* 5/75 */
-    border-radius: 0.066667rem; /* 5/75 */
-  }
   .hoistory {
     overflow: hidden;
     background-color: #fff;
     ul {
       li {
         float: left;
-        width: 33%;
+        width: 30%;
+        height: 1.266667rem /* 95/75 */;
+        box-shadow: 0px 0px 5px 10px #f6f6f7;
+        line-height: 1.26666rem;
+        text-align: center;
+        font-size: 0.373333rem /* 28/75 */;
+        border-radius: 0.066667rem; /* 5/75 */
       }
     }
   }

@@ -122,8 +122,10 @@ export default {
 }
 .allli {
   padding-left: 0.346667rem; /* 26/75 */
+  box-shadow: 0 0 0.066667rem /* 5/75 */ #eaecf1;
   padding-bottom: 0.266667rem /* 20/75 */;
   border-radius: 0.2rem /* 15/75 */;
+  padding: 0 /* 34/75 */ 0.32rem /* 24/75 */;
   margin-bottom: 0.32rem /* 24/75 */;
   .titleLeft {
     font-size: 0.48rem /* 36/75 */;
@@ -133,14 +135,14 @@ export default {
     float: right;
     font-size: 0.373333rem; /* 28/75 */
     color: #037fff;
-    padding-right: 0.346667rem; /* 26/75 */
+    // padding-right: 0.346667rem; /* 26/75 */
   }
   .discounts {
     border-top: 1px solid #e6e6e6;
     overflow: hidden;
     background-color: #ffffff;
-    padding: 0.453333rem /* 34/75 */ 0.32rem /* 24/75 */ 0;
     box-sizing: border-box;
+    padding-top: 0.426667rem /* 32/75 */;
     // border: 2px solid #f5f6f6;
     // box-shadow: 0px 0px 10px 5px /* 20/75 */ #f5f6f6;
 

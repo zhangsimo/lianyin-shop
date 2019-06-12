@@ -15,25 +15,18 @@
             </div>
             <div class="img">
               <!-- <span v-for="(item2 ,index2) in item.header_image_url.split(',')" :key="index2"> -->
-              <img :src="baseURL + item.header_image_url.split(',')[0]" alt />
-              <img :src="baseURL + item.header_image_url.split(',')[1]" alt />
+              <img :src="baseURL + item.header_image_url.split(',')[0]" alt>
+              <img :src="baseURL + item.header_image_url.split(',')[1]" alt>
 
               <!-- </span> -->
             </div>
           </div>
           <!-- 商家优惠进行显示判断 -->
-          <div
-            class="discounts"
-            v-if="item.goods !== null"
-            @click="goshop(item)"
-          >
+          <div class="discounts" v-if="item.goods !== null" @click="goshop(item)">
             <p>商家优惠</p>
             <div>
               <div class="left">
-                <img
-                  :src="baseURL + item.goods.title_image.split(',')[0]"
-                  alt
-                />
+                <img :src="baseURL + item.goods.title_image.split(',')[0]" alt>
               </div>
               <div class="right">
                 <h5 class="top">{{ item.goods.description }}</h5>
@@ -109,8 +102,9 @@ export default {
     padding-right: 0.333333rem /* 18/54 */;
     box-sizing: border-box;
     background-color: #fff;
-    box-shadow: 0px 0px 0.266667rem#f7f5f9;
-    margin-bottom: 0.266667rem /* 20/75 */;
+    border-radius: 0.2rem /* 15/75 */;
+    box-shadow: 0 0 0.066667rem /* 5/75 */ #eaecf1;
+    padding-bottom: 0.266667rem /* 20/75 */;
     .leave {
       position: absolute;
       right: 0;
@@ -182,6 +176,7 @@ export default {
           text-overflow: ellipsis;
           margin-top: 0.1rem;
           margin-bottom: 0.45rem; /* 45/54 */
+          height: 0.4rem /* 30/75 */;
         }
         .bottom {
           font-size: 0.32rem /* 24/75 */;

@@ -66,6 +66,7 @@ export default {
   ul {
     width: 100%;
     overflow: hidden;
+    box-shadow: 0 0 0.066667rem /* 5/75 */ #eaecf1;
     li {
       width: 50%;
       float: left;
@@ -73,7 +74,6 @@ export default {
       font-size: 0.373333rem /* 28/75 */;
       color: #666666;
       background-color: #fff;
-      box-shadow: 0 0 0.066667rem /* 5/75 */ #e6e6e6;
       a {
         text-decoration: none;
         padding-bottom: 0.25rem /* 15/75 */;

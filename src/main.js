@@ -23,6 +23,7 @@ axios.interceptors.request.use(
     // 添加token
 
     config.headers.token = sessionStorage.getItem('lianyin_token')
+    // config.headers.token = 1
 
     return config
   },

@@ -5,9 +5,9 @@
         <i class="iconfont merchantBack">&#xe62e;</i>
       </router-link>
       <div slot="right" class="right">
-        <router-link to="/home" slot="left">
+        <a slot="left">
           <i class="iconfont merchantBack">&#xe629;</i>
-        </router-link>
+        </a>
         <a @click="collect">
           <i class="iconfont merchantBack">&#xe6ae;</i>
         </a>
@@ -37,6 +37,9 @@ export default {
           })
       })
     }
+    // share(){
+    //    this.$messagebox.confirm('')
+    // }
   }
 }
 </script>

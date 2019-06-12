@@ -1,13 +1,9 @@
 <template>
   <div>
-    <mt-header
-      :title="title.goods.title"
-      class="classifyHeader"
-      :fixed="isFixed"
-    >
-      <router-link to="/home" slot="left">
+    <mt-header :title="title.goods.title" class="classifyHeader" :fixed="isFixed">
+      <a href="javascript:history.back(-1)" slot="left">
         <i class="iconfont classifyBack">&#xe62e;</i>
-      </router-link>
+      </a>
     </mt-header>
   </div>
 </template>
