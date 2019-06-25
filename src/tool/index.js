@@ -13,7 +13,8 @@ const store = new Vuex.Store({
     changeCity: '',
     useraddress: '',
     loginCode: '',
-    hotCity: ''
+    hotCity: '',
+    useCode: ''
   },
   mutations: {
     // 获取购买商品的信息
@@ -43,6 +44,9 @@ const store = new Vuex.Store({
     },
     gethotCity (state, hot) {
       state.hotCity = hot
+    },
+    getstayuse (state, use) {
+      state.useCode = use
     }
   },
   plugins: [

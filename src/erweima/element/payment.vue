@@ -5,24 +5,25 @@
         <div>
           <div class="shoptitle">
             <h4>
-              好吃不上火
+              {{use.shop.merchant_name}}
               <span>
                 <img src="../../assets/images/fh.png" alt>
               </span>
             </h4>
           </div>
           <div class="left">
-            <img src="../../assets/shop1.png" alt>
+            <img :src="baseURL + use.goods.title_image.split(',')[0]" alt>
+            <!-- <img src="../../assets/shop1.png" alt> -->
           </div>
           <div class="right">
-            <h5 class="top">周末3小时xx123131231312313123123xxxx</h5>
+            <h5 class="top">{{use.goods.goods_name}}</h5>
             <h5 class="bottom">
               <div class="discourt">
-                <span>￥69.00</span>
+                <span>￥{{use.goods.packet}}</span>
               </div>
               <div class="sales">
                 <span>
-                  <i>×1</i>
+                  <i>×{{use.goods.goods_number}}</i>
                 </span>
               </div>
             </h5>
@@ -32,7 +33,7 @@
           <p>验证码</p>
         </div>
         <div class="verificationNumber">
-          <p>123123131231</p>
+          <p>{{use.coupon_code}}</p>
         </div>
         <div style="text-align: center">
           <div class="verificationImage">
@@ -46,12 +47,20 @@
 
 <script>
 import QRCode from 'qrcodejs2'
+import variable from '../../global-variable.js'
+
 export default {
   data () {
     return {
-      numberlist: 123456,
-      token: ''
+      baseURL: variable.baseURL,
+      // numberlist: 123123,
+      token: '',
+      use: ''
     }
+  },
+  created () {
+    this.use = this.$store.state.useCode
+    console.log(this.use)
   },
   mounted () {
     this.token = sessionStorage.getItem('lianyin_token')
@@ -65,10 +74,10 @@ export default {
         width: '200', // 二维码宽度
         height: '200', // 二维码高度
         text: `http://ant-www.9vdata.com/#/check?token=${
-          this.tkne
-        }&couponCode=${this.numberlist}`
+          this.token
+        }&couponCode=${this.use.coupon_code}`
       })
-      console.log(qrcode._oDrawing._elImage)
+      console.log(this.use.coupon_code, this.token)
     }
   }
 }

@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     check () {
-      let token = location.href.split('?')[1]
+      let token = decodeURIComponent(location.href.split('=')[1])
       console.log(token)
 
       this.$messagebox.confirm('确定使用此券码?').then(() => {})

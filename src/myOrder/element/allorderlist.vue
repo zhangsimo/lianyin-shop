@@ -94,7 +94,8 @@ export default {
         this.loadMore()
       }
     },
-    use () {
+    use (item) {
+      this.$store.commit('getstayuse', item)
       this.$router.push('/erweima')
     },
     doneagain (item) {
